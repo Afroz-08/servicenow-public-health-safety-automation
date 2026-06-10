@@ -34,6 +34,12 @@ The application enables citizens to submit healthcare-related requests through a
 
 ---
 
+## Architecture Diagram
+
+![Architecture Diagram](docs/public-health-safety-automation-architecture.png)
+
+---
+
 ## Workflow
 
 Citizen Request Submission  
