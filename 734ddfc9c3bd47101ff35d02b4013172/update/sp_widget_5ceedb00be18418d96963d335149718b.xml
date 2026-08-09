@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+  <sp_widget action="INSERT_OR_UPDATE">
+    <sys_id>5ceedb00be18418d96963d335149718b</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>sp_widget_5ceedb00be18418d96963d335149718b</sys_update_name>
+    <category>custom</category>
+    <client_script><![CDATA[api.controller = function($location) {
+    var c = this;
+
+    c.navigateTo = function(pageId) {
+        $location.search('id', pageId);
+    };
+
+    c.submitRequest = function() {
+        $location.search({id: 'sc_cat_item', sys_id: c.data.recordProducerSysId});
+    };
+};
+]]></client_script>
+    <controller_as>c</controller_as>
+    <css><![CDATA[.sp-hero {
+    background: linear-gradient(135deg, lighten($brand-primary, 30%) 0%, lighten($brand-primary, 15%) 50%, $brand-primary 100%);
+    border-radius: $border-radius-large;
+    margin-bottom: 24px;
+    overflow: hidden;
+    position: relative;
+}
+.sp-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba($btn-primary-color, 0.15);
+    pointer-events: none;
+}
+.sp-hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 48px;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.sp-hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: $btn-primary-color;
+    margin: 0 0 8px;
+    line-height: 1.2;
+}
+.sp-hero-subtitle {
+    font-size: $font-size-base;
+    color: $btn-primary-color;
+    opacity: 0.85;
+    margin: 0;
+    max-width: 560px;
+}
+.sp-hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.sp-hero-btn {
+    background: rgba($btn-primary-color, 0.9);
+    color: $brand-primary;
+    border: none;
+    border-radius: $border-radius-base;
+    height: 44px;
+    padding: 0 20px;
+    font-size: $font-size-base;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s;
+}
+.sp-hero-btn:hover {
+    background: $btn-primary-color;
+    color: $brand-primary-dark;
+}
+.sp-hero-btn-secondary {
+    background: rgba($btn-primary-color, 0.2);
+    color: $btn-primary-color;
+    border: 1px solid rgba($btn-primary-color, 0.4);
+    border-radius: $border-radius-base;
+    height: 44px;
+    padding: 0 20px;
+    font-size: $font-size-base;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s;
+}
+.sp-hero-btn-secondary:hover {
+    background: rgba($btn-primary-color, 0.35);
+    color: $btn-primary-color;
+}
+]]></css>
+    <data_table>sp_instance</data_table>
+    <demo_data/>
+    <description/>
+    <docs/>
+    <field_list/>
+    <has_preview>false</has_preview>
+    <id>x_839216_public_0_home_hero</id>
+    <internal>false</internal>
+    <link>function link(scope, element, attrs, controller) {
+}</link>
+    <name>Public Health Home Hero</name>
+    <option_schema/>
+    <public>false</public>
+    <roles/>
+    <script><![CDATA[(function() {
+    data.userName = gs.getUserName();
+    var userGr = new GlideRecord('sys_user');
+    if (userGr.get(gs.getUserID())) {
+        data.userFullName = userGr.getDisplayValue('name') + '';
+    } else {
+        data.userFullName = data.userName;
+    }
+    data.recordProducerSysId = 'd7379635c36203101ff35d02b4013193';
+})();
+]]></script>
+    <servicenow>false</servicenow>
+    <template><![CDATA[<div class="sp-hero">
+    <div class="sp-hero-inner">
+        <div class="sp-hero-text">
+            <h1 class="sp-hero-title">Public Health Safety Portal</h1>
+            <p class="sp-hero-subtitle">Welcome, {{c.data.userFullName}}. Submit and track health service requests, manage appointments, and access public health resources.</p>
+        </div>
+        <div class="sp-hero-actions">
+            <button type="button" class="btn sp-hero-btn" ng-click="c.submitRequest()">
+                <span class="glyphicon glyphicon-plus"></span> Submit Request
+            </button>
+            <button type="button" class="btn sp-hero-btn-secondary" ng-click="c.navigateTo('x_839216_public_0_my_requests')">
+                <span class="glyphicon glyphicon-list"></span> My Requests
+            </button>
+        </div>
+    </div>
+</div>
+]]></template>
+  </sp_widget>
+</record_update>

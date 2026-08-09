@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+  <sp_widget action="INSERT_OR_UPDATE">
+    <sys_id>b26d9a63f9e04b8296cca7a4e958b489</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>sp_widget_b26d9a63f9e04b8296cca7a4e958b489</sys_update_name>
+    <category>custom</category>
+    <client_script><![CDATA[api.controller = function() {
+    var c = this;
+};
+]]></client_script>
+    <controller_as>c</controller_as>
+    <css><![CDATA[.sp-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+.sp-card-grid > [class*="col-"] {
+    display: flex;
+    margin-bottom: 24px;
+}
+.sp-stat-panel {
+    width: 100%;
+    border-top: 3px solid $border-tertiary;
+    border-radius: $border-radius-large;
+    box-shadow: 0 1px 4px rgba($text-color, 0.07);
+    margin-bottom: 0;
+}
+.sp-stat-info {
+    border-top-color: $brand-info;
+}
+.sp-stat-warning {
+    border-top-color: $brand-warning;
+}
+.sp-stat-success {
+    border-top-color: $brand-success;
+}
+.sp-stat-danger {
+    border-top-color: $brand-danger;
+}
+.sp-stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: $text-color;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.sp-stat-label {
+    font-size: $font-size-small;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+}
+.sp-stat-icon {
+    font-size: 20px;
+    color: $text-muted;
+    opacity: 0.5;
+    margin-top: 12px;
+    display: block;
+}
+]]></css>
+    <data_table>sp_instance</data_table>
+    <demo_data/>
+    <description/>
+    <docs/>
+    <field_list/>
+    <has_preview>false</has_preview>
+    <id>x_839216_public_0_stats_cards</id>
+    <internal>false</internal>
+    <link>function link(scope, element, attrs, controller) {
+}</link>
+    <name>Public Health Stats Cards</name>
+    <option_schema/>
+    <public>false</public>
+    <roles/>
+    <script><![CDATA[(function() {
+    var table = 'x_839216_public_0_health_service_request_v1';
+    data.totalRequests = 0;
+    data.inProgress = 0;
+    data.approved = 0;
+    data.rejected = 0;
+
+    var gr = new GlideRecord(table);
+    gr.addQuery('active', true);
+    gr.setLimit(1000);
+    gr.query();
+    while (gr.next()) {
+        data.totalRequests++;
+        var status = gr.getValue('u_status');
+        if (status === 'in_progress') {
+            data.inProgress++;
+        } else if (status === 'approved') {
+            data.approved++;
+        } else if (status === 'rejected') {
+            data.rejected++;
+        }
+    }
+})();
+]]></script>
+    <servicenow>false</servicenow>
+    <template><![CDATA[<div class="row sp-card-grid">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="panel panel-default sp-stat-panel sp-stat-info">
+            <div class="panel-body text-center">
+                <div class="sp-stat-value">{{c.data.totalRequests}}</div>
+                <div class="sp-stat-label">Total Requests</div>
+                <span class="glyphicon glyphicon-folder-open sp-stat-icon"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="panel panel-default sp-stat-panel sp-stat-warning">
+            <div class="panel-body text-center">
+                <div class="sp-stat-value">{{c.data.inProgress}}</div>
+                <div class="sp-stat-label">In Progress</div>
+                <span class="glyphicon glyphicon-time sp-stat-icon"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="panel panel-default sp-stat-panel sp-stat-success">
+            <div class="panel-body text-center">
+                <div class="sp-stat-value">{{c.data.approved}}</div>
+                <div class="sp-stat-label">Approved</div>
+                <span class="glyphicon glyphicon-ok-circle sp-stat-icon"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="panel panel-default sp-stat-panel sp-stat-danger">
+            <div class="panel-body text-center">
+                <div class="sp-stat-value">{{c.data.rejected}}</div>
+                <div class="sp-stat-label">Rejected</div>
+                <span class="glyphicon glyphicon-remove-circle sp-stat-icon"></span>
+            </div>
+        </div>
+    </div>
+</div>
+]]></template>
+  </sp_widget>
+</record_update>

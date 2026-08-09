@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+  <sp_widget action="INSERT_OR_UPDATE">
+    <sys_id>61a42179e93b4eccbc16ca0f4fac048e</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>sp_widget_61a42179e93b4eccbc16ca0f4fac048e</sys_update_name>
+    <category>custom</category>
+    <client_script><![CDATA[api.controller = function($location) {
+    var c = this;
+
+    c.goBack = function() {
+        $location.search('id', 'x_839216_public_0_my_requests');
+    };
+
+    c.getStatusClass = function(status) {
+        if (!status) return 'label-default';
+        var s = status.toLowerCase();
+        if (s === 'approved') return 'label-success';
+        if (s === 'in_progress' || s === 'in progress') return 'label-warning';
+        if (s === 'rejected') return 'label-danger';
+        if (s === 'submitted') return 'label-info';
+        return 'label-default';
+    };
+
+    c.getPriorityClass = function(priority) {
+        if (!priority) return 'label-default';
+        var p = priority.toLowerCase();
+        if (p === 'critical') return 'label-danger';
+        if (p === 'high') return 'label-warning';
+        if (p === 'medium') return 'label-info';
+        return 'label-default';
+    };
+};
+]]></client_script>
+    <controller_as>c</controller_as>
+    <css><![CDATA[.sp-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.sp-detail-number {
+    font-size: 26px;
+    font-weight: 700;
+    color: $text-color;
+    margin: 0;
+}
+.sp-empty-state {
+    padding: 64px 24px;
+}
+.sp-empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+    opacity: 0.35;
+    color: $text-muted;
+}
+.sp-empty-title {
+    font-size: $font-size-large;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 8px;
+}
+]]></css>
+    <data_table>sp_instance</data_table>
+    <demo_data/>
+    <description/>
+    <docs/>
+    <field_list/>
+    <has_preview>false</has_preview>
+    <id>x_839216_public_0_request_detail</id>
+    <internal>false</internal>
+    <link>function link(scope, element, attrs, controller) {
+}</link>
+    <name>Public Health Request Detail</name>
+    <option_schema/>
+    <public>false</public>
+    <roles/>
+    <script><![CDATA[(function() {
+    data.record = null;
+    data.notFound = false;
+
+    var sysId = $sp.getParameter('sys_id');
+    if (!sysId) {
+        data.notFound = true;
+        return;
+    }
+
+    var table = 'x_839216_public_0_health_service_request_v1';
+    var gr = new GlideRecord(table);
+    gr.setLimit(1);
+    if (gr.get(sysId)) {
+        data.record = {
+            sys_id: gr.getUniqueValue(),
+            number: gr.getValue('number') + '',
+            u_citizen_name: gr.getValue('u_citizen_name') + '',
+            u_email: gr.getValue('u_email') + '',
+            u_phone_number: gr.getValue('u_phone_number') + '',
+            u_request_type: gr.getDisplayValue('u_request_type') + '',
+            u_urgency: gr.getDisplayValue('u_urgency') + '',
+            u_priority: gr.getDisplayValue('u_priority') + '',
+            u_status: gr.getDisplayValue('u_status') + '',
+            u_approval_status: gr.getDisplayValue('u_approval_status') + '',
+            assignment_group: gr.getDisplayValue('assignment_group') + '',
+            u_appointment_date: gr.getDisplayValue('u_appointment_date') + '',
+            u_purpose: gr.getValue('u_purpose') + '',
+            u_notes: gr.getValue('u_notes') + '',
+            sys_created_on: gr.getDisplayValue('sys_created_on') + '',
+            sys_created_by: gr.getValue('sys_created_by') + '',
+            opened_by: gr.getDisplayValue('opened_by') + ''
+        };
+    } else {
+        data.notFound = true;
+    }
+})();
+]]></script>
+    <servicenow>false</servicenow>
+    <template><![CDATA[<div ng-if="c.data.notFound" class="panel panel-default">
+    <div class="panel-body text-center">
+        <div class="sp-empty-state">
+            <span class="glyphicon glyphicon-exclamation-sign sp-empty-icon"></span>
+            <h4 class="sp-empty-title">Request Not Found</h4>
+            <p class="text-muted">The requested record could not be found.</p>
+            <button type="button" class="btn btn-primary" ng-click="c.goBack()">
+                <span class="glyphicon glyphicon-arrow-left"></span> Back to Requests
+            </button>
+        </div>
+    </div>
+</div>
+
+<div ng-if="c.data.record">
+    <div class="sp-detail-header">
+        <button type="button" class="btn btn-default" ng-click="c.goBack()">
+            <span class="glyphicon glyphicon-arrow-left"></span> Back
+        </button>
+        <h2 class="sp-detail-number">{{c.data.record.number}}</h2>
+        <span class="label" ng-class="c.getStatusClass(c.data.record.u_status)">{{c.data.record.u_status}}</span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-file"></span> Request Details
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label text-muted">Request Type</label>
+                                <p>{{c.data.record.u_request_type}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label text-muted">Priority</label>
+                                <p><span class="label" ng-class="c.getPriorityClass(c.data.record.u_priority)">{{c.data.record.u_priority}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label text-muted">Urgency</label>
+                                <p>{{c.data.record.u_urgency}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label text-muted">Assignment Group</label>
+                                <p>{{c.data.record.assignment_group || 'Unassigned'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label text-muted">Appointment Date</label>
+                                <p>{{c.data.record.u_appointment_date || 'N/A'}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label text-muted">Created On</label>
+                                <p>{{c.data.record.sys_created_on}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="c.data.record.u_purpose">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label text-muted">Purpose</label>
+                                <p>{{c.data.record.u_purpose}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" ng-if="c.data.record.u_notes">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-comment"></span> Notes
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p>{{c.data.record.u_notes}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-user"></span> Citizen Information
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="control-label text-muted">Name</label>
+                        <p>{{c.data.record.u_citizen_name || 'N/A'}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label text-muted">Email</label>
+                        <p>{{c.data.record.u_email || 'N/A'}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label text-muted">Phone</label>
+                        <p>{{c.data.record.u_phone_number || 'N/A'}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label text-muted">Opened By</label>
+                        <p>{{c.data.record.opened_by || c.data.record.sys_created_by}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+]]></template>
+  </sp_widget>
+</record_update>

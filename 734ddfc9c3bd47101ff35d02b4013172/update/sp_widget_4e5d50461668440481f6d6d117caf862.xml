@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+  <sp_widget action="INSERT_OR_UPDATE">
+    <sys_id>4e5d50461668440481f6d6d117caf862</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>sp_widget_4e5d50461668440481f6d6d117caf862</sys_update_name>
+    <category>custom</category>
+    <client_script><![CDATA[api.controller = function() {
+    var c = this;
+
+    c.getBarWidth = function(count, max) {
+        if (!max || max === 0) return '0%';
+        return Math.round((count / max) * 100) + '%';
+    };
+};
+]]></client_script>
+    <controller_as>c</controller_as>
+    <css><![CDATA[.sp-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.sp-bar-label {
+    font-size: $font-size-small;
+    color: $text-color;
+    min-width: 100px;
+    flex-shrink: 0;
+}
+.sp-bar-track {
+    flex: 1;
+    height: 20px;
+    background: $background-secondary;
+    border-radius: $border-radius-base;
+    overflow: hidden;
+}
+.sp-bar-fill {
+    height: 100%;
+    border-radius: $border-radius-base;
+    transition: width 0.3s ease;
+    min-width: 2px;
+}
+.sp-bar-info {
+    background: $brand-info;
+}
+.sp-bar-warning {
+    background: $brand-warning;
+}
+.sp-bar-success {
+    background: $brand-success;
+}
+.sp-bar-primary {
+    background: $brand-primary;
+}
+.sp-bar-count {
+    font-size: $font-size-small;
+    font-weight: 600;
+    color: $text-muted;
+    min-width: 30px;
+    text-align: right;
+}
+]]></css>
+    <data_table>sp_instance</data_table>
+    <demo_data/>
+    <description/>
+    <docs/>
+    <field_list/>
+    <has_preview>false</has_preview>
+    <id>x_839216_public_0_dashboard_charts</id>
+    <internal>false</internal>
+    <link>function link(scope, element, attrs, controller) {
+}</link>
+    <name>Public Health Dashboard Charts</name>
+    <option_schema/>
+    <public>false</public>
+    <roles/>
+    <script><![CDATA[(function() {
+    var table = 'x_839216_public_0_health_service_request_v1';
+    data.statusDist = [];
+    data.priorityDist = [];
+    data.typeDist = [];
+    data.groupDist = [];
+
+    var statusMap = {};
+    var priorityMap = {};
+    var typeMap = {};
+    var groupMap = {};
+
+    var gr = new GlideRecord(table);
+    gr.setLimit(500);
+    gr.query();
+    while (gr.next()) {
+        var status = gr.getDisplayValue('u_status') + '';
+        var priority = gr.getDisplayValue('u_priority') + '';
+        var reqType = gr.getDisplayValue('u_request_type') + '';
+        var group = gr.getDisplayValue('assignment_group') + '';
+
+        statusMap[status] = (statusMap[status] || 0) + 1;
+        priorityMap[priority] = (priorityMap[priority] || 0) + 1;
+        typeMap[reqType] = (typeMap[reqType] || 0) + 1;
+        if (group) {
+            groupMap[group] = (groupMap[group] || 0) + 1;
+        }
+    }
+
+    for (var s in statusMap) {
+        data.statusDist.push({label: s, count: statusMap[s]});
+    }
+    for (var p in priorityMap) {
+        data.priorityDist.push({label: p, count: priorityMap[p]});
+    }
+    for (var t in typeMap) {
+        data.typeDist.push({label: t, count: typeMap[t]});
+    }
+    for (var g in groupMap) {
+        data.groupDist.push({label: g, count: groupMap[g]});
+    }
+
+    data.maxStatus = 0;
+    data.maxPriority = 0;
+    data.maxType = 0;
+    data.maxGroup = 0;
+    for (var i = 0; i < data.statusDist.length; i++) {
+        if (data.statusDist[i].count > data.maxStatus) data.maxStatus = data.statusDist[i].count;
+    }
+    for (var j = 0; j < data.priorityDist.length; j++) {
+        if (data.priorityDist[j].count > data.maxPriority) data.maxPriority = data.priorityDist[j].count;
+    }
+    for (var k = 0; k < data.typeDist.length; k++) {
+        if (data.typeDist[k].count > data.maxType) data.maxType = data.typeDist[k].count;
+    }
+    for (var l = 0; l < data.groupDist.length; l++) {
+        if (data.groupDist[l].count > data.maxGroup) data.maxGroup = data.groupDist[l].count;
+    }
+})();
+]]></script>
+    <servicenow>false</servicenow>
+    <template><![CDATA[<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-stats"></span> Status Distribution</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-if="c.data.statusDist.length === 0" class="text-center text-muted">No data available</div>
+                <div ng-repeat="item in c.data.statusDist track by $index" class="sp-bar-row">
+                    <div class="sp-bar-label">{{item.label}}</div>
+                    <div class="sp-bar-track">
+                        <div class="sp-bar-fill sp-bar-info" ng-style="{width: c.getBarWidth(item.count, c.data.maxStatus)}"></div>
+                    </div>
+                    <div class="sp-bar-count">{{item.count}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-flag"></span> Priority Distribution</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-if="c.data.priorityDist.length === 0" class="text-center text-muted">No data available</div>
+                <div ng-repeat="item in c.data.priorityDist track by $index" class="sp-bar-row">
+                    <div class="sp-bar-label">{{item.label}}</div>
+                    <div class="sp-bar-track">
+                        <div class="sp-bar-fill sp-bar-warning" ng-style="{width: c.getBarWidth(item.count, c.data.maxPriority)}"></div>
+                    </div>
+                    <div class="sp-bar-count">{{item.count}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-th-list"></span> Request Type Distribution</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-if="c.data.typeDist.length === 0" class="text-center text-muted">No data available</div>
+                <div ng-repeat="item in c.data.typeDist track by $index" class="sp-bar-row">
+                    <div class="sp-bar-label">{{item.label}}</div>
+                    <div class="sp-bar-track">
+                        <div class="sp-bar-fill sp-bar-success" ng-style="{width: c.getBarWidth(item.count, c.data.maxType)}"></div>
+                    </div>
+                    <div class="sp-bar-count">{{item.count}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-briefcase"></span> Assignment Group Distribution</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-if="c.data.groupDist.length === 0" class="text-center text-muted">No data available</div>
+                <div ng-repeat="item in c.data.groupDist track by $index" class="sp-bar-row">
+                    <div class="sp-bar-label">{{item.label}}</div>
+                    <div class="sp-bar-track">
+                        <div class="sp-bar-fill sp-bar-primary" ng-style="{width: c.getBarWidth(item.count, c.data.maxGroup)}"></div>
+                    </div>
+                    <div class="sp-bar-count">{{item.count}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+]]></template>
+  </sp_widget>
+</record_update>

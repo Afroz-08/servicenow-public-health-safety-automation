@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rectangle_menu_item">
+  <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
+    <sys_id>7478e39bf3f642c8b61c9615db58a751</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>sp_rectangle_menu_item_7478e39bf3f642c8b61c9615db58a751</sys_update_name>
+    <active>true</active>
+    <color>default</color>
+    <condition/>
+    <display_1/>
+    <display_2/>
+    <display_date/>
+    <filter/>
+    <glyph>list</glyph>
+    <hint/>
+    <kb_article/>
+    <kb_category/>
+    <kb_topic/>
+    <label>My Requests</label>
+    <order>300</order>
+    <record_script/>
+    <roles/>
+    <sc_cat_item/>
+    <sc_category/>
+    <short_description/>
+    <sp_page id="x_839216_public_0_my_requests">8262d88931bf4768807d20549628a690</sp_page>
+    <sp_rectangle_menu>b9dd9a883df24abdb0cf3bfcf14db298</sp_rectangle_menu>
+    <sp_rectangle_menu_item/>
+    <table/>
+    <type>page</type>
+    <url/>
+    <url_target/>
+  </sp_rectangle_menu_item>
+</record_update>

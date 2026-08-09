@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+  <sp_container action="INSERT_OR_UPDATE">
+    <sys_id>c9bd1c73e7854cf78198a09f830cab54</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>sp_container_c9bd1c73e7854cf78198a09f830cab54</sys_update_name>
+    <background_color/>
+    <background_image/>
+    <background_style>default</background_style>
+    <bootstrap_alt>false</bootstrap_alt>
+    <class_name/>
+    <container_class_name/>
+    <name>All Requests</name>
+    <order>1</order>
+    <semantic_tag/>
+    <sp_page id="x_839216_public_0_all_requests">47f02f8e91b1471aa15ddf1d82965309</sp_page>
+    <subheader>false</subheader>
+    <title/>
+    <width>container</width>
+  </sp_container>
+</record_update>
