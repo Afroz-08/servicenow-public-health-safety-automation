@@ -31,7 +31,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2bb5f0fd0bf245cd80ead97603b24a91</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Determine Priority</sys_name>
         <sys_overrides/>
         <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
@@ -39,7 +39,7 @@
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_2bb5f0fd0bf245cd80ead97603b24a91</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 19:35:38</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:21</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -125,8 +125,7 @@
         gs.error('Determine Priority - Error: ' + e.message);
         outputs.priority = urgency || 'medium';
     }
-})(inputs, outputs);
-</value>
+})(inputs, outputs);</value>
         <variable display_value="Script">71aa7f6647032200b4fad7527c9a719b</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -937,17 +936,17 @@
     <sys_hub_action_plan action="INSERT_OR_UPDATE">
         <action_id display_value="Determine Priority">2bb5f0fd0bf245cd80ead97603b24a91</action_id>
         <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"e7618126c3e647101ff35d02b4013111","name":"plan","plan_signature":null}}</plan>
-        <snapshot>446889a2c32a47101ff35d02b40131e5</snapshot>
+        <snapshot>d6994966c32a47101ff35d02b401312f</snapshot>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:57</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>e7618126c3e647101ff35d02b4013111</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 19:30:19</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:35:38</sys_updated_on>
     </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
@@ -997,11 +996,11 @@
         <order>1</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>97614126c3e647101ff35d02b4013195</sys_id>
+        <sys_created_on>2026-08-09 19:49:21</sys_created_on>
+        <sys_id>07bc892ec32a47101ff35d02b40131c5</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:21</sys_updated_on>
         <value>{"version":"1.0","complexObjectSchema":{"FlowDesigner:FDACTIONSTATUS":{"code":"Integer","code.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"Integer\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"integer\",\"default_value\":\"\",\"label\":\"Code\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"1\",\"max_length\":\"40\"}"},"message":"String","message.$field_facets":{"SimpleMapFacet":"{\"uiTypeLabel\":\"String\",\"read_only\":\"false\",\"hint\":\"\",\"uiType\":\"string\",\"default_value\":\"\",\"label\":\"Message\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"order\":\"2\",\"max_length\":\"4000\"}"}},"FlowDesigner:FDACTIONSTATUS.$type_facets":{"SimpleMapFacet":"{\"default_value\":\"\",\"label\":\"Action Status\",\"action_error_output\":\"true\",\"mandatory\":\"false\",\"uiUniqueId\":\"4adfb7bc-9d67-498d-88d0-8d6c3d584fed\",\"uiTypeLabel\":\"Object\",\"co_type_name\":\"FDACTIONSTATUS\",\"element_mapping_provider\":\"com.glide.flow_design.action.data.FlowDesignVariableMapper\",\"read_only\":\"false\",\"hint\":null,\"uiType\":\"object\",\"order\":\"1\",\"max_length\":\"65000\"}"}},"serializationFormat":"JSON","complexObject":{"code":{"$cv":{"$c":"java.lang.String","$v":""}},"message":{"$cv":{"$c":"java.lang.String","$v":""}}}}</value>
         <variable display_value="Action Status">17614126c3e647101ff35d02b4013158</variable>
     </sys_variable_value>
@@ -1030,7 +1029,7 @@
         <table>var__m_sys_hub_action_output_87610126c3e647101ff35d02b40131e2</table>
         <value/>
     </sys_element_mapping>
-    <sys_hub_step_instance action="delete_multiple" query="action=87610126c3e647101ff35d02b40131e2^sys_idNOT IN53610126c3e647101ff35d02b40131fd"/>
+    <sys_hub_step_instance action="delete_multiple" query="action=87610126c3e647101ff35d02b40131e2^sys_idNOT IN03bc892ec32a47101ff35d02b401315a"/>
     <sys_hub_step_instance action="INSERT_OR_UPDATE">
         <action display_value="Determine Priority">87610126c3e647101ff35d02b40131e2</action>
         <cid>570a9e7c-5ea7-4dd0-96a4-9e4d9e6b3371</cid>
@@ -1046,25 +1045,25 @@
         <section/>
         <step_type display_value="Script">106afb6647032200b4fad7527c9a71e7</step_type>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>53610126c3e647101ff35d02b40131fd</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_created_on>2026-08-09 19:49:20</sys_created_on>
+        <sys_id>03bc892ec32a47101ff35d02b401315a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 19:35:37</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
     </sys_hub_step_instance>
-    <sys_variable_value action="delete_multiple" query="document_key=53610126c3e647101ff35d02b40131fd"/>
+    <sys_variable_value action="delete_multiple" query="document_key=03bc892ec32a47101ff35d02b401315a"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_hub_step_instance</document>
-        <document_key>53610126c3e647101ff35d02b40131fd</document_key>
+        <document_key>03bc892ec32a47101ff35d02b401315a</document_key>
         <order>600</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>1f614126c3e647101ff35d02b4013148</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_created_on>2026-08-09 19:49:20</sys_created_on>
+        <sys_id>03bc892ec32a47101ff35d02b401317f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 19:35:37</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <value>(function execute(inputs, outputs) {
     var requestType = inputs.request_type || '';
     var urgency = inputs.urgency || '';
@@ -1097,51 +1096,50 @@
         gs.error('Determine Priority - Error: ' + e.message);
         outputs.priority = urgency || 'medium';
     }
-})(inputs, outputs);
-</value>
+})(inputs, outputs);</value>
         <variable display_value="Script">71aa7f6647032200b4fad7527c9a719b</variable>
     </sys_variable_value>
-    <sys_element_mapping action="delete_multiple" query="id=53610126c3e647101ff35d02b40131fd"/>
+    <sys_element_mapping action="delete_multiple" query="id=03bc892ec32a47101ff35d02b401315a"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>request_type</field>
-        <id>53610126c3e647101ff35d02b40131fd</id>
+        <id>03bc892ec32a47101ff35d02b401315a</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>db614126c3e647101ff35d02b401314a</sys_id>
+        <sys_created_on>2026-08-09 19:49:20</sys_created_on>
+        <sys_id>8bbc892ec32a47101ff35d02b4013180</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
-        <table>var__m_sys_hub_step_ext_input_53610126c3e647101ff35d02b40131fd</table>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_03bc892ec32a47101ff35d02b401315a</table>
         <value>{{action.request_type}}</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>script</field>
-        <id>53610126c3e647101ff35d02b40131fd</id>
+        <id>03bc892ec32a47101ff35d02b401315a</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>53614126c3e647101ff35d02b4013148</sys_id>
+        <sys_created_on>2026-08-09 19:49:20</sys_created_on>
+        <sys_id>47bc892ec32a47101ff35d02b401317e</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <table>var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7</table>
         <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>urgency</field>
-        <id>53610126c3e647101ff35d02b40131fd</id>
+        <id>03bc892ec32a47101ff35d02b401315a</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>13614126c3e647101ff35d02b401314b</sys_id>
+        <sys_created_on>2026-08-09 19:49:20</sys_created_on>
+        <sys_id>cfbc892ec32a47101ff35d02b4013180</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
-        <table>var__m_sys_hub_step_ext_input_53610126c3e647101ff35d02b40131fd</table>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
+        <table>var__m_sys_hub_step_ext_input_03bc892ec32a47101ff35d02b401315a</table>
         <value>{{action.urgency}}</value>
     </sys_element_mapping>
-    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_step_ext_output_53610126c3e647101ff35d02b40131fd^id=53610126c3e647101ff35d02b40131fd"/>
-    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=53610126c3e647101ff35d02b40131fd"/>
-    <sys_translated_text action="delete_multiple" query="documentkey=53610126c3e647101ff35d02b40131fd"/>
-    <sys_hub_step_ext_input action="delete_multiple" query="model=53610126c3e647101ff35d02b40131fd^sys_idNOT IN97614126c3e647101ff35d02b4013104,97614126c3e647101ff35d02b401310b"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_step_ext_output_03bc892ec32a47101ff35d02b401315a^id=03bc892ec32a47101ff35d02b401315a"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_flow_step_definition_input_106afb6647032200b4fad7527c9a71e7^id=03bc892ec32a47101ff35d02b401315a"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=03bc892ec32a47101ff35d02b401315a"/>
+    <sys_hub_step_ext_input action="delete_multiple" query="model=03bc892ec32a47101ff35d02b401315a^sys_idNOT IN8bbc892ec32a47101ff35d02b4013161,8bbc892ec32a47101ff35d02b4013168"/>
     <sys_hub_step_ext_input action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1182,10 +1180,10 @@
         <label>request_type</label>
         <mandatory>false</mandatory>
         <max_length>8000</max_length>
-        <model display_value="Evaluate Priority Matrix">53610126c3e647101ff35d02b40131fd</model>
-        <model_id>53610126c3e647101ff35d02b40131fd</model_id>
+        <model display_value="Evaluate Priority Matrix">03bc892ec32a47101ff35d02b401315a</model>
+        <model_id>03bc892ec32a47101ff35d02b401315a</model_id>
         <model_table>sys_hub_step_instance</model_table>
-        <name>var__m_sys_hub_step_ext_input_53610126c3e647101ff35d02b40131fd</name>
+        <name>var__m_sys_hub_step_ext_input_03bc892ec32a47101ff35d02b401315a</name>
         <next_element/>
         <order>0</order>
         <primary>false</primary>
@@ -1203,8 +1201,8 @@
         <staged>false</staged>
         <sys_class_name>sys_hub_step_ext_input</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>97614126c3e647101ff35d02b4013104</sys_id>
+        <sys_created_on>2026-08-09 19:49:20</sys_created_on>
+        <sys_id>8bbc892ec32a47101ff35d02b4013161</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package/>
@@ -1212,7 +1210,7 @@
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1265,10 +1263,10 @@
         <label>urgency</label>
         <mandatory>false</mandatory>
         <max_length>8000</max_length>
-        <model display_value="Evaluate Priority Matrix">53610126c3e647101ff35d02b40131fd</model>
-        <model_id>53610126c3e647101ff35d02b40131fd</model_id>
+        <model display_value="Evaluate Priority Matrix">03bc892ec32a47101ff35d02b401315a</model>
+        <model_id>03bc892ec32a47101ff35d02b401315a</model_id>
         <model_table>sys_hub_step_instance</model_table>
-        <name>var__m_sys_hub_step_ext_input_53610126c3e647101ff35d02b40131fd</name>
+        <name>var__m_sys_hub_step_ext_input_03bc892ec32a47101ff35d02b401315a</name>
         <next_element/>
         <order>0</order>
         <primary>false</primary>
@@ -1286,8 +1284,8 @@
         <staged>false</staged>
         <sys_class_name>sys_hub_step_ext_input</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>97614126c3e647101ff35d02b401310b</sys_id>
+        <sys_created_on>2026-08-09 19:49:20</sys_created_on>
+        <sys_id>8bbc892ec32a47101ff35d02b4013168</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package/>
@@ -1295,7 +1293,7 @@
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1308,7 +1306,7 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_step_ext_input>
-    <sys_hub_step_ext_output action="delete_multiple" query="model=53610126c3e647101ff35d02b40131fd^sys_idNOT IN5b614126c3e647101ff35d02b4013111"/>
+    <sys_hub_step_ext_output action="delete_multiple" query="model=03bc892ec32a47101ff35d02b401315a^sys_idNOT IN8bbc892ec32a47101ff35d02b401316e"/>
     <sys_hub_step_ext_output action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -1349,10 +1347,10 @@
         <label>priority</label>
         <mandatory>false</mandatory>
         <max_length>8000</max_length>
-        <model display_value="Evaluate Priority Matrix">53610126c3e647101ff35d02b40131fd</model>
-        <model_id>53610126c3e647101ff35d02b40131fd</model_id>
+        <model display_value="Evaluate Priority Matrix">03bc892ec32a47101ff35d02b401315a</model>
+        <model_id>03bc892ec32a47101ff35d02b401315a</model_id>
         <model_table>sys_hub_step_instance</model_table>
-        <name>var__m_sys_hub_step_ext_output_53610126c3e647101ff35d02b40131fd</name>
+        <name>var__m_sys_hub_step_ext_output_03bc892ec32a47101ff35d02b401315a</name>
         <next_element/>
         <order>0</order>
         <primary>false</primary>
@@ -1370,8 +1368,8 @@
         <staged>false</staged>
         <sys_class_name>sys_hub_step_ext_output</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>5b614126c3e647101ff35d02b4013111</sys_id>
+        <sys_created_on>2026-08-09 19:49:20</sys_created_on>
+        <sys_id>8bbc892ec32a47101ff35d02b401316e</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package/>
@@ -1379,7 +1377,7 @@
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1392,19 +1390,19 @@
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_step_ext_output>
-    <sys_hub_input_scripts action="delete_multiple" query="instance=53610126c3e647101ff35d02b40131fd"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=03bc892ec32a47101ff35d02b401315a"/>
     <sys_documentation action="INSERT_OR_UPDATE">
         <element>priority</element>
         <help/>
         <hint/>
         <label>priority</label>
         <language>en</language>
-        <name>var__m_sys_hub_step_ext_output_53610126c3e647101ff35d02b40131fd</name>
+        <name>var__m_sys_hub_step_ext_output_03bc892ec32a47101ff35d02b401315a</name>
         <plural/>
         <sys_class_name>sys_documentation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
-        <sys_id>1f614126c3e647101ff35d02b401312f</sys_id>
+        <sys_created_on>2026-08-09 19:49:20</sys_created_on>
+        <sys_id>4fbc892ec32a47101ff35d02b4013173</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
@@ -1412,7 +1410,7 @@
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <url/>
         <url_target/>
     </sys_documentation>
@@ -1423,12 +1421,7 @@
         <array_denormalized>false</array_denormalized>
         <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,timeFromCreateToActivate=20000,uiType=string</attributes>
         <audit>false</audit>
-        <calculation><![CDATA[(function calculatedFieldValue(current) {
-
-	// Add your code here
-	return '';  // return the calculated value
-
-})(current);]]></calculation>
+        <calculation/>
         <choice/>
         <choice_field/>
         <choice_table/>
@@ -1478,24 +1471,24 @@
         <staged>false</staged>
         <sys_class_name>sys_hub_action_input</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:55</sys_created_on>
+        <sys_created_on>2026-08-09 19:49:15</sys_created_on>
         <sys_id>9f610126c3e647101ff35d02b40131e8</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:55</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
         <use_dependent_field>false</use_dependent_field>
         <use_dynamic_default>false</use_dynamic_default>
-        <use_reference_qualifier>simple</use_reference_qualifier>
+        <use_reference_qualifier/>
         <virtual>false</virtual>
-        <virtual_type>script</virtual_type>
+        <virtual_type/>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
@@ -1507,12 +1500,7 @@
         <array_denormalized>false</array_denormalized>
         <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,timeFromCreateToActivate=20000,uiType=string</attributes>
         <audit>false</audit>
-        <calculation><![CDATA[(function calculatedFieldValue(current) {
-
-	// Add your code here
-	return '';  // return the calculated value
-
-})(current);]]></calculation>
+        <calculation/>
         <choice/>
         <choice_field/>
         <choice_table/>
@@ -1562,24 +1550,24 @@
         <staged>false</staged>
         <sys_class_name>sys_hub_action_input</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
+        <sys_created_on>2026-08-09 19:49:15</sys_created_on>
         <sys_id>df610126c3e647101ff35d02b40131f0</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
         <use_dependent_field>false</use_dependent_field>
         <use_dynamic_default>false</use_dynamic_default>
-        <use_reference_qualifier>simple</use_reference_qualifier>
+        <use_reference_qualifier/>
         <virtual>false</virtual>
-        <virtual_type>script</virtual_type>
+        <virtual_type/>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
@@ -1592,12 +1580,7 @@
         <array_denormalized>false</array_denormalized>
         <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=string,uiTypeLabel=String,uiUniqueId=2bb5f0fd0bf245cd80ead97603b24a91-priority</attributes>
         <audit>false</audit>
-        <calculation><![CDATA[(function calculatedFieldValue(current) {
-
-	// Add your code here
-	return '';  // return the calculated value
-
-})(current);]]></calculation>
+        <calculation/>
         <choice/>
         <choice_field/>
         <choice_table/>
@@ -1649,24 +1632,24 @@
         <staged>false</staged>
         <sys_class_name>sys_hub_action_output</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2026-08-09 18:59:56</sys_created_on>
+        <sys_created_on>2026-08-09 19:49:15</sys_created_on>
         <sys_id>17614126c3e647101ff35d02b4013150</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
         <use_dependent_field>false</use_dependent_field>
         <use_dynamic_default>false</use_dynamic_default>
-        <use_reference_qualifier>simple</use_reference_qualifier>
+        <use_reference_qualifier/>
         <virtual>false</virtual>
-        <virtual_type>script</virtual_type>
+        <virtual_type/>
         <widget/>
         <write_roles/>
         <xml_view>false</xml_view>
@@ -1738,14 +1721,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:56</sys_created_on>
         <sys_id>17614126c3e647101ff35d02b4013158</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:56</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1825,14 +1808,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:56</sys_created_on>
         <sys_id>5f614126c3e647101ff35d02b401315e</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 19:35:38</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:49:21</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -1866,7 +1849,7 @@
         <label>Urgency</label>
         <language>en</language>
         <name>var__m_sys_hub_action_input_87610126c3e647101ff35d02b40131e2</name>
-        <plural/>
+        <plural>Urgencies</plural>
         <sys_class_name>sys_documentation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:56</sys_created_on>
@@ -1889,7 +1872,7 @@
         <label>Request Type</label>
         <language>en</language>
         <name>var__m_sys_hub_action_input_87610126c3e647101ff35d02b40131e2</name>
-        <plural/>
+        <plural>Request Types</plural>
         <sys_class_name>sys_documentation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:56</sys_created_on>
@@ -1913,7 +1896,7 @@
         <label>Priority</label>
         <language>en</language>
         <name>var__m_sys_hub_action_output_87610126c3e647101ff35d02b40131e2</name>
-        <plural/>
+        <plural>Priorities</plural>
         <sys_class_name>sys_documentation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:56</sys_created_on>
@@ -1936,7 +1919,7 @@
         <label>Don't Treat as Error</label>
         <language>en</language>
         <name>var__m_sys_hub_action_output_87610126c3e647101ff35d02b40131e2</name>
-        <plural/>
+        <plural>Don't Treat as Errors</plural>
         <sys_class_name>sys_documentation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:56</sys_created_on>
@@ -1959,7 +1942,7 @@
         <label>Action Status</label>
         <language>en</language>
         <name>var__m_sys_hub_action_output_87610126c3e647101ff35d02b40131e2</name>
-        <plural/>
+        <plural>Action Status</plural>
         <sys_class_name>sys_documentation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:56</sys_created_on>
