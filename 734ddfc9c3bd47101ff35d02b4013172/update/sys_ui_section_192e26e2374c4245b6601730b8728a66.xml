@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+  <sys_ui_section caption="Request Details" section_id="192e26e2374c4245b6601730b8728a66" sys_domain="global" table="x_839216_public_0_health_service_request_v1" view="">
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>.begin_split</element>
+      <position>0</position>
+      <sys_id>aa8e6f0b58e04816be7a43a555ac6b2f</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type>.begin_split</type>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>number</element>
+      <position>1</position>
+      <sys_id>000454a7a402469e872aade732af6a0e</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type/>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>u_request_type</element>
+      <position>2</position>
+      <sys_id>d8c5a205c1bf494c90331e441a3f4d35</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type/>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>u_priority</element>
+      <position>3</position>
+      <sys_id>6b629209e54e461daf3325b05b6e6336</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type/>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>u_approval_status</element>
+      <position>4</position>
+      <sys_id>5c84bf6da4f442a5a92a4de10f8df606</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type/>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>.split</element>
+      <position>5</position>
+      <sys_id>fd5afd09f7124111ad25d8b42de6764a</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type>.split</type>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>u_status</element>
+      <position>6</position>
+      <sys_id>48765d0ea33b40779d8acd878e0b8d62</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type/>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>u_urgency</element>
+      <position>7</position>
+      <sys_id>f8f51a9671ec4415a1642d81cb7f49eb</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type/>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>assignment_group</element>
+      <position>8</position>
+      <sys_id>c7cc5fa141754a7897c0a19aba034169</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type/>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>sys_created_on</element>
+      <position>9</position>
+      <sys_id>8486a9f0c41549ce996d7b00e4708436</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type/>
+    </sys_ui_element>
+    <sys_ui_element action="INSERT_OR_UPDATE">
+      <element>.end_split</element>
+      <position>10</position>
+      <sys_id>e60654767735495aa54c35d19a9988c3</sys_id>
+      <sys_ui_formatter/>
+      <sys_ui_section caption="Request Details" display_value="Request Details" name="x_839216_public_0_health_service_request_v1" sys_domain="global" view="Default view">192e26e2374c4245b6601730b8728a66</sys_ui_section>
+      <sys_user/>
+      <type>.end_split</type>
+    </sys_ui_element>
+    <sys_ui_section action="INSERT_OR_UPDATE">
+      <caption>Request Details</caption>
+      <header>false</header>
+      <name>x_839216_public_0_health_service_request_v1</name>
+      <roles/>
+      <sys_domain>global</sys_domain>
+      <sys_id>192e26e2374c4245b6601730b8728a66</sys_id>
+      <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+      <sys_user/>
+      <title>false</title>
+      <view_name/>
+      <view display_value="Default view" name="NULL">Default view</view>
+    </sys_ui_section>
+  </sys_ui_section>
+</record_update>

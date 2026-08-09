@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+  <sys_ui_list table="x_839216_public_0_health_service_request_v1">
+    <sys_ui_list_element action="INSERT_OR_UPDATE">
+      <sys_id>84177e1f8cb64f47ae72cbb495a1855c</sys_id>
+      <list_id display_value="x_839216_public_0_health_service_request_v1" element="NULL" name="x_839216_public_0_health_service_request_v1" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">76d40ec32f20456da938708043bc603a</list_id>
+      <element>number</element>
+      <position>0</position>
+    </sys_ui_list_element>
+    <sys_ui_list_element action="INSERT_OR_UPDATE">
+      <sys_id>215f7e9df2ea43d9a4df9ff6805534af</sys_id>
+      <list_id display_value="x_839216_public_0_health_service_request_v1" element="NULL" name="x_839216_public_0_health_service_request_v1" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">76d40ec32f20456da938708043bc603a</list_id>
+      <element>u_citizen_name</element>
+      <position>1</position>
+    </sys_ui_list_element>
+    <sys_ui_list_element action="INSERT_OR_UPDATE">
+      <sys_id>fdcf902757e5473cabd8fca91c8a3978</sys_id>
+      <list_id display_value="x_839216_public_0_health_service_request_v1" element="NULL" name="x_839216_public_0_health_service_request_v1" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">76d40ec32f20456da938708043bc603a</list_id>
+      <element>u_request_type</element>
+      <position>2</position>
+    </sys_ui_list_element>
+    <sys_ui_list_element action="INSERT_OR_UPDATE">
+      <sys_id>defc2a4bca5f4dfba02ed8f8cb77525b</sys_id>
+      <list_id display_value="x_839216_public_0_health_service_request_v1" element="NULL" name="x_839216_public_0_health_service_request_v1" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">76d40ec32f20456da938708043bc603a</list_id>
+      <element>u_urgency</element>
+      <position>3</position>
+    </sys_ui_list_element>
+    <sys_ui_list_element action="INSERT_OR_UPDATE">
+      <sys_id>73cb68aa3bc74de097f902206e2c1d89</sys_id>
+      <list_id display_value="x_839216_public_0_health_service_request_v1" element="NULL" name="x_839216_public_0_health_service_request_v1" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">76d40ec32f20456da938708043bc603a</list_id>
+      <element>u_priority</element>
+      <position>4</position>
+    </sys_ui_list_element>
+    <sys_ui_list_element action="INSERT_OR_UPDATE">
+      <sys_id>547499880e22496ebff99f7b3918f81d</sys_id>
+      <list_id display_value="x_839216_public_0_health_service_request_v1" element="NULL" name="x_839216_public_0_health_service_request_v1" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">76d40ec32f20456da938708043bc603a</list_id>
+      <element>u_status</element>
+      <position>5</position>
+    </sys_ui_list_element>
+    <sys_ui_list_element action="INSERT_OR_UPDATE">
+      <sys_id>61bfae90f24f45ff922b6c196f066ce2</sys_id>
+      <list_id display_value="x_839216_public_0_health_service_request_v1" element="NULL" name="x_839216_public_0_health_service_request_v1" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">76d40ec32f20456da938708043bc603a</list_id>
+      <element>assignment_group</element>
+      <position>6</position>
+    </sys_ui_list_element>
+    <sys_ui_list_element action="INSERT_OR_UPDATE">
+      <sys_id>849251857c87425a8b5c4de3e6dbe844</sys_id>
+      <list_id display_value="x_839216_public_0_health_service_request_v1" element="NULL" name="x_839216_public_0_health_service_request_v1" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">76d40ec32f20456da938708043bc603a</list_id>
+      <element>sys_created_on</element>
+      <position>7</position>
+    </sys_ui_list_element>
+    <sys_ui_list action="INSERT_OR_UPDATE">
+      <sys_id>76d40ec32f20456da938708043bc603a</sys_id>
+      <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+      <view name="NULL">Default view</view>
+      <name>x_839216_public_0_health_service_request_v1</name>
+    </sys_ui_list>
+  </sys_ui_list>
+</record_update>
