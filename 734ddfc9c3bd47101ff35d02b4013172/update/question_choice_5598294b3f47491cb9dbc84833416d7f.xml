@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice">
+  <question_choice action="INSERT_OR_UPDATE">
+    <sys_id>5598294b3f47491cb9dbc84833416d7f</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>question_choice_5598294b3f47491cb9dbc84833416d7f</sys_update_name>
+    <inactive>false</inactive>
+    <order>1</order>
+    <question cat_item="d7379635c36203101ff35d02b4013193" name="u_request_type" variable_set="NULL">e287ea75daf54a1c9946dca2f328a3de</question>
+    <text>Appointment</text>
+    <value>appointment</value>
+  </question_choice>
+</record_update>

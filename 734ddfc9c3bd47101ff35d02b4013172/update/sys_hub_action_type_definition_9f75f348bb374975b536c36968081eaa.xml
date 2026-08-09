@@ -31,7 +31,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9f75f348bb374975b536c36968081eaa</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Determine Assignment Group</sys_name>
         <sys_overrides/>
         <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
@@ -39,7 +39,7 @@
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_9f75f348bb374975b536c36968081eaa</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:58</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:30:19</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -98,17 +98,33 @@
     var priority = inputs.priority || '';
 
     try {
+        // Map actual table choice values to Assignment Matrix condition values
+        var dtRequestType = requestType;
+        if (requestType === 'health_inpection') {
+            dtRequestType = 'general_health';
+        } else if (requestType === 'medical_assistance') {
+            dtRequestType = 'medical assistance';
+        } else if (requestType === 'emergency_support') {
+            dtRequestType = 'emergency';
+        }
+
         var dtApi = new sn_dt.DecisionTableAPI();
         var dtInputs = {
-            u_request_type: requestType,
+            u_request_type: dtRequestType,
             u_priority: priority
         };
         var result = dtApi.getDecision('9f5da86ac32647101ff35d02b4013121', dtInputs);
 
         if (result &amp;&amp; result.length &gt; 0) {
             var decision = result[0];
-            if (decision.assignment_group) {
-                outputs.assignment_group_name = decision.assignment_group.toString();
+            if (decision.u_assignment_group) {
+                var groupValue = decision.u_assignment_group.toString();
+                var grp = new GlideRecord('sys_user_group');
+                if (grp.get(groupValue)) {
+                    outputs.assignment_group_name = grp.getValue('name');
+                } else {
+                    outputs.assignment_group_name = groupValue;
+                }
             } else {
                 outputs.assignment_group_name = 'Health Support';
             }
@@ -116,7 +132,7 @@
             outputs.assignment_group_name = 'Health Support';
         }
     } catch (e) {
-        gs.error('Determine Assignment Group Action - Error evaluating decision table: ' + e.message);
+        gs.error('Determine Assignment Group - Error: ' + e.message);
         outputs.assignment_group_name = 'Health Support';
     }
 })(inputs, outputs);
@@ -927,7 +943,22 @@
         <url_target/>
     </sys_documentation>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_output_9f75f348bb374975b536c36968081eaa"/>
-    <sys_hub_action_plan action="delete_multiple" query="action_id=9f75f348bb374975b536c36968081eaa"/>
+    <sys_hub_action_plan action="delete_multiple" query="action_id=9f75f348bb374975b536c36968081eaa^sys_idNOT IN0c71c126c3e647101ff35d02b401310a"/>
+    <sys_hub_action_plan action="INSERT_OR_UPDATE">
+        <action_id display_value="Determine Assignment Group">9f75f348bb374975b536c36968081eaa</action_id>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"0c71c126c3e647101ff35d02b401310a","name":"plan","plan_signature":null}}</plan>
+        <snapshot>7b618126c3e647101ff35d02b40131c6</snapshot>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 18:59:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0c71c126c3e647101ff35d02b401310a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 18:59:59</sys_updated_on>
+    </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
         <acls/>
@@ -1027,10 +1058,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:57</sys_created_on>
         <sys_id>67618126c3e647101ff35d02b4013158</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:58</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:30:19</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=67618126c3e647101ff35d02b4013158"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -1041,25 +1072,41 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:58</sys_created_on>
         <sys_id>7f618126c3e647101ff35d02b4013186</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:58</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:30:19</sys_updated_on>
         <value>(function execute(inputs, outputs) {
     var requestType = inputs.request_type || '';
     var priority = inputs.priority || '';
 
     try {
+        // Map actual table choice values to Assignment Matrix condition values
+        var dtRequestType = requestType;
+        if (requestType === 'health_inpection') {
+            dtRequestType = 'general_health';
+        } else if (requestType === 'medical_assistance') {
+            dtRequestType = 'medical assistance';
+        } else if (requestType === 'emergency_support') {
+            dtRequestType = 'emergency';
+        }
+
         var dtApi = new sn_dt.DecisionTableAPI();
         var dtInputs = {
-            u_request_type: requestType,
+            u_request_type: dtRequestType,
             u_priority: priority
         };
         var result = dtApi.getDecision('9f5da86ac32647101ff35d02b4013121', dtInputs);
 
         if (result &amp;&amp; result.length &gt; 0) {
             var decision = result[0];
-            if (decision.assignment_group) {
-                outputs.assignment_group_name = decision.assignment_group.toString();
+            if (decision.u_assignment_group) {
+                var groupValue = decision.u_assignment_group.toString();
+                var grp = new GlideRecord('sys_user_group');
+                if (grp.get(groupValue)) {
+                    outputs.assignment_group_name = grp.getValue('name');
+                } else {
+                    outputs.assignment_group_name = groupValue;
+                }
             } else {
                 outputs.assignment_group_name = 'Health Support';
             }
@@ -1067,7 +1114,7 @@
             outputs.assignment_group_name = 'Health Support';
         }
     } catch (e) {
-        gs.error('Determine Assignment Group Action - Error evaluating decision table: ' + e.message);
+        gs.error('Determine Assignment Group - Error: ' + e.message);
         outputs.assignment_group_name = 'Health Support';
     }
 })(inputs, outputs);
@@ -1711,14 +1758,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-08-09 18:59:58</sys_created_on>
         <sys_id>bb618126c3e647101ff35d02b40131b3</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-08-09 18:59:58</sys_updated_on>
+        <sys_updated_on>2026-08-09 19:30:19</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

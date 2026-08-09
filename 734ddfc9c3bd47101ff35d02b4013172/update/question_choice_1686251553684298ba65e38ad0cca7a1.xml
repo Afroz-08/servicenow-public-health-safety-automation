@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice">
+  <question_choice action="INSERT_OR_UPDATE">
+    <sys_id>1686251553684298ba65e38ad0cca7a1</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>question_choice_1686251553684298ba65e38ad0cca7a1</sys_update_name>
+    <inactive>false</inactive>
+    <order>1</order>
+    <question cat_item="d7379635c36203101ff35d02b4013193" name="u_urgency" variable_set="NULL">571813512de74a0689bdb1f31fb24a2f</question>
+    <text>Low</text>
+    <value>low</value>
+  </question_choice>
+</record_update>
