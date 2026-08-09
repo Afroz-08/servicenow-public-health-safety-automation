@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test">
+  <sys_atf_test action="INSERT_OR_UPDATE">
+    <sys_id>91ef3f356102473badd25b7aa2d80c4a</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>sys_atf_test_91ef3f356102473badd25b7aa2d80c4a</sys_update_name>
+    <active>true</active>
+    <description>Validates that medical_assistance request with high urgency produces priority=high (urgency passthrough when DT returns default), and routes to Medical Assistance group via Assignment Matrix rule matching medical assistance + high.</description>
+    <fail_on_server_error>true</fail_on_server_error>
+    <name>Test C - Medical Assistance High Urgency Routes to Medical Assistance</name>
+  </sys_atf_test>
+</record_update>

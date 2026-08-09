@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+  <sys_atf_step action="INSERT_OR_UPDATE">
+    <sys_id>d75873888e4f48e387327fe1357fc31c</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <active>true</active>
+    <description/>
+    <display_name>Run Server Side Script</display_name>
+    <notes/>
+    <order>1</order>
+    <step_config>41de4a935332120028bc29cac2dc349a</step_config>
+    <table/>
+    <test>97221b19cd774379a7ce9253eec2efe8</test>
+    <timeout/>
+    <warning_message/>
+  </sys_atf_step>
+  <sys_variable_value action="delete_multiple" query="document_key=d75873888e4f48e387327fe1357fc31c"/>
+  <sys_variable_value action="INSERT_OR_UPDATE">
+    <sys_id>fc3b17a985184e70a03e883915fb4595</sys_id>
+    <document>sys_atf_step</document>
+    <document_key>d75873888e4f48e387327fe1357fc31c</document_key>
+    <value>3.1</value>
+    <variable>42f2564b73031300440211d8faf6a777</variable>
+    <order>100</order>
+  </sys_variable_value>
+  <sys_variable_value action="INSERT_OR_UPDATE">
+    <sys_id>da63740a00714cf7b76f101d489bd57a</sys_id>
+    <document>sys_atf_step</document>
+    <document_key>d75873888e4f48e387327fe1357fc31c</document_key>
+    <value>
+(function(outputs, steps, params, stepResult, assertEqual) {
+    var requestType = 'emergency_support';
+    var urgency = 'critical';
+
+    var dtApi = new sn_dt.DecisionTableAPI();
+    var dtInputs = { u_request_type: requestType, u_urgency: urgency };
+    var result = dtApi.getDecision('bf5a9df0c3ce83901ff35d02b401317a', dtInputs);
+
+    var dtPriority = (result &amp;&amp; result.length &gt; 0 &amp;&amp; result[0].u_priority) ? result[0].u_priority.toString() : '';
+    var finalPriority;
+    if (dtPriority &amp;&amp; dtPriority !== 'medium') {
+        finalPriority = dtPriority;
+    } else {
+        finalPriority = urgency || 'medium';
+    }
+
+    assertEqual({ name: 'Priority should be critical', shouldbe: 'critical', value: finalPriority });
+    outputs.priority = finalPriority;
+    stepResult.setOutputMessage('Priority for emergency_support+critical = ' + finalPriority);
+})(outputs, steps, params, stepResult, assertEqual);
+        </value>
+    <variable>989d9e235324220002c6435723dc3484</variable>
+    <order>200</order>
+  </sys_variable_value>
+  <sys_element_mapping action="delete_multiple" query="id=d75873888e4f48e387327fe1357fc31c"/>
+  <sys_element_mapping action="INSERT_OR_UPDATE">
+    <sys_id>7c589f0bcfce4d7482a31d22f97e0d4a</sys_id>
+    <field>script</field>
+    <id>d75873888e4f48e387327fe1357fc31c</id>
+    <table>var__m_atf_input_variable_41de4a935332120028bc29cac2dc349a</table>
+    <value>
+(function(outputs, steps, params, stepResult, assertEqual) {
+    var requestType = 'emergency_support';
+    var urgency = 'critical';
+
+    var dtApi = new sn_dt.DecisionTableAPI();
+    var dtInputs = { u_request_type: requestType, u_urgency: urgency };
+    var result = dtApi.getDecision('bf5a9df0c3ce83901ff35d02b401317a', dtInputs);
+
+    var dtPriority = (result &amp;&amp; result.length &gt; 0 &amp;&amp; result[0].u_priority) ? result[0].u_priority.toString() : '';
+    var finalPriority;
+    if (dtPriority &amp;&amp; dtPriority !== 'medium') {
+        finalPriority = dtPriority;
+    } else {
+        finalPriority = urgency || 'medium';
+    }
+
+    assertEqual({ name: 'Priority should be critical', shouldbe: 'critical', value: finalPriority });
+    outputs.priority = finalPriority;
+    stepResult.setOutputMessage('Priority for emergency_support+critical = ' + finalPriority);
+})(outputs, steps, params, stepResult, assertEqual);
+        </value>
+  </sys_element_mapping>
+</record_update>

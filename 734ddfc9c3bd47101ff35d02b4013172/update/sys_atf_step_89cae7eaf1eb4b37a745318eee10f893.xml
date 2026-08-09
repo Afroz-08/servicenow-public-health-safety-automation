@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+  <sys_atf_step action="INSERT_OR_UPDATE">
+    <sys_id>89cae7eaf1eb4b37a745318eee10f893</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <active>true</active>
+    <description/>
+    <display_name>Record Insert</display_name>
+    <notes/>
+    <order>1</order>
+    <step_config>14872288df60220062fe6c7a4df26319</step_config>
+    <table>x_839216_public_0_health_service_request_v1</table>
+    <test>19f42a7743494d67846ca53a518c0cc3</test>
+    <timeout/>
+    <warning_message/>
+  </sys_atf_step>
+  <sys_variable_value action="delete_multiple" query="document_key=89cae7eaf1eb4b37a745318eee10f893"/>
+  <sys_variable_value action="INSERT_OR_UPDATE">
+    <sys_id>186755cd34d6443c98671e49a0d0994b</sys_id>
+    <document>sys_atf_step</document>
+    <document_key>89cae7eaf1eb4b37a745318eee10f893</document_key>
+    <value>x_839216_public_0_health_service_request_v1</value>
+    <variable>90144b535320220002c6435723dc3488</variable>
+    <order>200</order>
+  </sys_variable_value>
+  <sys_variable_value action="INSERT_OR_UPDATE">
+    <sys_id>d05e5dc3b58d4081bc8955b38dc44ee3</sys_id>
+    <document>sys_atf_step</document>
+    <document_key>89cae7eaf1eb4b37a745318eee10f893</document_key>
+    <value>record_successfully_inserted</value>
+    <variable>9024a37f671003007ba405225685efe5</variable>
+    <order>100</order>
+  </sys_variable_value>
+  <sys_variable_value action="INSERT_OR_UPDATE">
+    <sys_id>fb052f5a421644fc98fef674854c7292</sys_id>
+    <document>sys_atf_step</document>
+    <document_key>89cae7eaf1eb4b37a745318eee10f893</document_key>
+    <value>u_citizen_name=ATF Test Citizen^u_email=atf-test@example.com^u_phone_number=555-0100^u_request_type=emergency_support^u_urgency=critical^u_purpose=ATF Test - Emergency support request for flow lifecycle validation^u_status=submitted^EQ</value>
+    <variable>dd54cf535320220002c6435723dc34fd</variable>
+    <order>400</order>
+  </sys_variable_value>
+  <sys_variable_value action="INSERT_OR_UPDATE">
+    <sys_id>b04fccf8ed0341448f7b0a91718ba321</sys_id>
+    <document>sys_atf_step</document>
+    <document_key>89cae7eaf1eb4b37a745318eee10f893</document_key>
+    <value>1</value>
+    <variable>e6e3c7535320220002c6435723dc3496</variable>
+    <order>100</order>
+  </sys_variable_value>
+</record_update>

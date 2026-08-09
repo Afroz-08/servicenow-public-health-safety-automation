@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test">
+  <sys_atf_test action="INSERT_OR_UPDATE">
+    <sys_id>f2168a9415fb4832bfbbfbc405d07edd</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <sys_update_name>sys_atf_test_f2168a9415fb4832bfbbfbc405d07edd</sys_update_name>
+    <active>true</active>
+    <description>Validates that appointment request with medium urgency produces priority=medium and routes to Appointment Services group via the Assignment Matrix decision table rule matching appointment + medium.</description>
+    <fail_on_server_error>true</fail_on_server_error>
+    <name>Test E - Appointment Medium Urgency Routes to Appointment Services</name>
+  </sys_atf_test>
+</record_update>

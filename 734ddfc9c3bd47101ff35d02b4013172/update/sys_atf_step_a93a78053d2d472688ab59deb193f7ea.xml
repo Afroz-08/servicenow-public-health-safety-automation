@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+  <sys_atf_step action="INSERT_OR_UPDATE">
+    <sys_id>a93a78053d2d472688ab59deb193f7ea</sys_id>
+    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+    <active>true</active>
+    <description/>
+    <display_name>Run Server Side Script</display_name>
+    <notes/>
+    <order>2</order>
+    <step_config>41de4a935332120028bc29cac2dc349a</step_config>
+    <table/>
+    <test>7eeba2956df04be0949f9f13150a7334</test>
+    <timeout/>
+    <warning_message/>
+  </sys_atf_step>
+  <sys_variable_value action="delete_multiple" query="document_key=a93a78053d2d472688ab59deb193f7ea"/>
+  <sys_variable_value action="INSERT_OR_UPDATE">
+    <sys_id>b451a2129b63439388bc2ea464a774d2</sys_id>
+    <document>sys_atf_step</document>
+    <document_key>a93a78053d2d472688ab59deb193f7ea</document_key>
+    <value>3.1</value>
+    <variable>42f2564b73031300440211d8faf6a777</variable>
+    <order>100</order>
+  </sys_variable_value>
+  <sys_variable_value action="INSERT_OR_UPDATE">
+    <sys_id>ee826ede6b71477a83a0233afbfe803c</sys_id>
+    <document>sys_atf_step</document>
+    <document_key>a93a78053d2d472688ab59deb193f7ea</document_key>
+    <value>
+(function(outputs, steps, params, stepResult, assertEqual) {
+    var requestType = 'vaccination';
+    var priority = 'medium';
+
+    // vaccination maps directly (no remapping needed)
+    var dtRequestType = 'vaccination';
+
+    var dtApi = new sn_dt.DecisionTableAPI();
+    var dtInputs = { u_request_type: dtRequestType, u_priority: priority };
+    var result = dtApi.getDecision('9f5da86ac32647101ff35d02b4013121', dtInputs);
+
+    var groupName = 'Health Support';
+    if (result &amp;&amp; result.length &gt; 0 &amp;&amp; result[0].u_assignment_group) {
+        var groupValue = result[0].u_assignment_group.toString();
+        var grp = new GlideRecord('sys_user_group');
+        if (grp.get(groupValue)) {
+            groupName = grp.getValue('name');
+        } else {
+            groupName = groupValue;
+        }
+    }
+
+    assertEqual({ name: 'Assignment group should be Vaccination Services', shouldbe: 'Vaccination Services', value: groupName });
+    stepResult.setOutputMessage('Assignment for vaccination+medium = ' + groupName);
+})(outputs, steps, params, stepResult, assertEqual);
+        </value>
+    <variable>989d9e235324220002c6435723dc3484</variable>
+    <order>200</order>
+  </sys_variable_value>
+  <sys_element_mapping action="delete_multiple" query="id=a93a78053d2d472688ab59deb193f7ea"/>
+  <sys_element_mapping action="INSERT_OR_UPDATE">
+    <sys_id>912112104ecf4e71aa10e00692c8d1b6</sys_id>
+    <field>script</field>
+    <id>a93a78053d2d472688ab59deb193f7ea</id>
+    <table>var__m_atf_input_variable_41de4a935332120028bc29cac2dc349a</table>
+    <value>
+(function(outputs, steps, params, stepResult, assertEqual) {
+    var requestType = 'vaccination';
+    var priority = 'medium';
+
+    // vaccination maps directly (no remapping needed)
+    var dtRequestType = 'vaccination';
+
+    var dtApi = new sn_dt.DecisionTableAPI();
+    var dtInputs = { u_request_type: dtRequestType, u_priority: priority };
+    var result = dtApi.getDecision('9f5da86ac32647101ff35d02b4013121', dtInputs);
+
+    var groupName = 'Health Support';
+    if (result &amp;&amp; result.length &gt; 0 &amp;&amp; result[0].u_assignment_group) {
+        var groupValue = result[0].u_assignment_group.toString();
+        var grp = new GlideRecord('sys_user_group');
+        if (grp.get(groupValue)) {
+            groupName = grp.getValue('name');
+        } else {
+            groupName = groupValue;
+        }
+    }
+
+    assertEqual({ name: 'Assignment group should be Vaccination Services', shouldbe: 'Vaccination Services', value: groupName });
+    stepResult.setOutputMessage('Assignment for vaccination+medium = ' + groupName);
+})(outputs, steps, params, stepResult, assertEqual);
+        </value>
+  </sys_element_mapping>
+</record_update>
