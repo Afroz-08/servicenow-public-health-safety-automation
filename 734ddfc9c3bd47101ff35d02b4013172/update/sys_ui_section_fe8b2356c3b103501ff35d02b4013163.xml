@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Req Information" section_id="fe8b2356c3b103501ff35d02b4013163" sys_domain="global" table="sys_app" version="3" view="">
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Req Information</caption>
+            <header>false</header>
+            <name>sys_app</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-07-03 05:57:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fe8b2356c3b103501ff35d02b4013163</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sys_app</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+            <sys_update_name>sys_ui_section_fe8b2356c3b103501ff35d02b4013163</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-07-03 05:57:36</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

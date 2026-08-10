@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_question">
+    <sys_decision_question action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <answer>81307ceec32647101ff35d02b4013163</answer>
+        <condition/>
+        <decision_table display_value="Health Request Assignment Matrix">9f5da86ac32647101ff35d02b4013121</decision_table>
+        <default_answer>true</default_answer>
+        <input_table>var__m_sys_decision_input_9f5da86ac32647101ff35d02b4013121</input_table>
+        <label>Health Request Assignment Matrix default result</label>
+        <marked_for_deletion>false</marked_for_deletion>
+        <order>100</order>
+        <sys_class_name>sys_decision_question</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 17:44:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7130bceec32647101ff35d02b4013105</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Health Request Assignment Matrix default result</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sys_decision_question_7130bceec32647101ff35d02b4013105</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 17:44:44</sys_updated_on>
+    </sys_decision_question>
+</record_update>

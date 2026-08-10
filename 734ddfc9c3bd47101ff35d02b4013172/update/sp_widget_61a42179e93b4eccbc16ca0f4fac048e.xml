@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
-  <sp_widget action="INSERT_OR_UPDATE">
-    <sys_id>61a42179e93b4eccbc16ca0f4fac048e</sys_id>
-    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
-    <sys_update_name>sp_widget_61a42179e93b4eccbc16ca0f4fac048e</sys_update_name>
-    <category>custom</category>
-    <client_script><![CDATA[api.controller = function($location) {
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($location) {
     var c = this;
 
     c.goBack = function() {
@@ -83,8 +80,8 @@
     c.buildProgressSteps();
 };
 ]]></client_script>
-    <controller_as>c</controller_as>
-    <css><![CDATA[/* Header */
+        <controller_as>c</controller_as>
+        <css>/* Header */
 .sp-detail-header {
     display: flex;
     align-items: center;
@@ -278,22 +275,22 @@
         font-size: 11px;
     }
 }
-]]></css>
-    <data_table>sp_instance</data_table>
-    <demo_data/>
-    <description/>
-    <docs/>
-    <field_list/>
-    <has_preview>false</has_preview>
-    <id>x_839216_public_0_request_detail</id>
-    <internal>false</internal>
-    <link><![CDATA[function link(scope, element, attrs, controller) {
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>x_839216_public_0_request_detail</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
 }]]></link>
-    <name>Public Health Request Detail</name>
-    <option_schema/>
-    <public>false</public>
-    <roles/>
-    <script><![CDATA[(function() {
+        <name>Public Health Request Detail</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
     data.record = null;
     data.notFound = false;
 
@@ -331,8 +328,20 @@
     }
 })();
 ]]></script>
-    <servicenow>false</servicenow>
-    <template><![CDATA[<div ng-if="c.data.notFound" class="panel panel-default">
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 20:19:30</sys_created_on>
+        <sys_id>61a42179e93b4eccbc16ca0f4fac048e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Public Health Request Detail</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sp_widget_61a42179e93b4eccbc16ca0f4fac048e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 20:19:30</sys_updated_on>
+        <template><![CDATA[<div ng-if="c.data.notFound" class="panel panel-default">
     <div class="panel-body text-center">
         <div class="sp-empty-state">
             <span class="glyphicon glyphicon-exclamation-sign sp-empty-icon"></span>
@@ -485,5 +494,5 @@
     </div>
 </div>
 ]]></template>
-  </sp_widget>
+    </sp_widget>
 </record_update>

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
-  <sp_widget action="INSERT_OR_UPDATE">
-    <sys_id>57944f660bc24d558d84690475754139</sys_id>
-    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
-    <sys_update_name>sp_widget_57944f660bc24d558d84690475754139</sys_update_name>
-    <category>custom</category>
-    <client_script><![CDATA[api.controller = function($location) {
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($location) {
     var c = this;
 
     c.statusFilter = '';
@@ -70,8 +67,8 @@
     };
 };
 ]]></client_script>
-    <controller_as>c</controller_as>
-    <css><![CDATA[/* List Panel */
+        <controller_as>c</controller_as>
+        <css>/* List Panel */
 .sp-list-panel {
     border: 1px solid #e8edf2;
     border-radius: 8px;
@@ -203,22 +200,22 @@
         margin-bottom: 8px;
     }
 }
-]]></css>
-    <data_table>sp_instance</data_table>
-    <demo_data/>
-    <description/>
-    <docs/>
-    <field_list/>
-    <has_preview>false</has_preview>
-    <id>x_839216_public_0_request_list</id>
-    <internal>false</internal>
-    <link><![CDATA[function link(scope, element, attrs, controller) {
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>x_839216_public_0_request_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
 }]]></link>
-    <name>Public Health Request List</name>
-    <option_schema>[{"name":"filter_by_user","label":"Filter by current user","type":"boolean","default_value":"true","section":"Data"},{"name":"title","label":"Widget Title","type":"string","default_value":"Health Service Requests","section":"Presentation"}]</option_schema>
-    <public>false</public>
-    <roles/>
-    <script><![CDATA[(function() {
+        <name>Public Health Request List</name>
+        <option_schema>[{"name":"filter_by_user","label":"Filter by current user","type":"boolean","default_value":"true","section":"Data"},{"name":"title","label":"Widget Title","type":"string","default_value":"Health Service Requests","section":"Presentation"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
     var table = 'x_839216_public_0_health_service_request_v1';
     data.title = options.title || 'Health Service Requests';
     data.records = [];
@@ -259,8 +256,20 @@
     }
 })();
 ]]></script>
-    <servicenow>false</servicenow>
-    <template><![CDATA[<div class="panel panel-default sp-list-panel">
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 20:19:30</sys_created_on>
+        <sys_id>57944f660bc24d558d84690475754139</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Public Health Request List</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sp_widget_57944f660bc24d558d84690475754139</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 20:19:30</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default sp-list-panel">
     <div class="panel-heading sp-list-heading">
         <h3 class="panel-title">
             <span class="glyphicon glyphicon-list-alt"></span>
@@ -348,5 +357,5 @@
     </div>
 </div>
 ]]></template>
-  </sp_widget>
+    </sp_widget>
 </record_update>

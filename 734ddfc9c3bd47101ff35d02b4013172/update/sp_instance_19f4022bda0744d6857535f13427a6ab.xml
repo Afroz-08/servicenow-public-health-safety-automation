@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
-  <sp_instance action="INSERT_OR_UPDATE">
-    <sys_id>19f4022bda0744d6857535f13427a6ab</sys_id>
-    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
-    <sys_update_name>sp_instance_19f4022bda0744d6857535f13427a6ab</sys_update_name>
-    <active>true</active>
-    <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
-    <async_load>false</async_load>
-    <async_load_device_type>desktop,tablet,mobile</async_load_device_type>
-    <async_load_trigger>viewport</async_load_trigger>
-    <class_name/>
-    <color>default</color>
-    <css/>
-    <glyph/>
-    <id/>
-    <order>1</order>
-    <placeholder_dimensions>{
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced_placeholder_dimensions>false</advanced_placeholder_dimensions>
+        <async_load>false</async_load>
+        <async_load_device_type>desktop,tablet,mobile</async_load_device_type>
+        <async_load_trigger>viewport</async_load_trigger>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <placeholder_dimensions>{
 	"mobile": {
 		"height": "250px",
 		"width": "100%"
@@ -28,7 +25,7 @@
 		"width": "100%"
 	}
 }</placeholder_dimensions>
-    <placeholder_dimensions_script>function evaluateConfig(options) { return {
+        <placeholder_dimensions_script><![CDATA[function evaluateConfig(options) { return {
 	"mobile": {
 		"height": "250px",
 		"width": "100%"
@@ -41,8 +38,8 @@
 		"height": "250px",
 		"width": "100%"
 	}
-}; }</placeholder_dimensions_script>
-    <placeholder_template>&lt;!--
+}; }]]></placeholder_dimensions_script>
+        <placeholder_template>&lt;!--
 	AngularJS template with configurable options.
 	Use the "options" object to control dynamic behavior.
 	Example: Display an element when max row count is 10:
@@ -57,14 +54,27 @@
 	&lt;div class="skeleton-box skeleton-line small"&gt;&lt;/div&gt;
 	&lt;div class="skeleton-box skeleton-line medium"&gt;&lt;/div&gt;
 &lt;/div&gt;</placeholder_template>
-    <preserve_placeholder_size>false</preserve_placeholder_size>
-    <roles/>
-    <short_description/>
-    <size>md</size>
-    <sp_column>f53d9242b6534a54a430e527a369a7aa</sp_column>
-    <sp_widget>57944f660bc24d558d84690475754139</sp_widget>
-    <title/>
-    <url/>
-    <widget_parameters>[object Object]</widget_parameters>
-  </sp_instance>
+        <preserve_placeholder_size>false</preserve_placeholder_size>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">f53d9242b6534a54a430e527a369a7aa</sp_column>
+        <sp_widget display_value="Public Health Request List">57944f660bc24d558d84690475754139</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 20:19:29</sys_created_on>
+        <sys_id>19f4022bda0744d6857535f13427a6ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sp_instance_19f4022bda0744d6857535f13427a6ab</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 20:19:29</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[[object Object]]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=19f4022bda0744d6857535f13427a6ab"/>
 </record_update>

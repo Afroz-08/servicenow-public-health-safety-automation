@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="ua_table_licensing_config">
+    <ua_table_licensing_config action="INSERT_OR_UPDATE">
+        <is_fulfillment>false</is_fulfillment>
+        <license_condition/>
+        <license_model>none</license_model>
+        <license_roles/>
+        <name>x_839216_public_0_health_service_request_v1</name>
+        <op_delete>true</op_delete>
+        <op_insert>true</op_insert>
+        <op_update>true</op_update>
+        <owner_condition/>
+        <sys_class_name>ua_table_licensing_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-07-03 06:23:51</sys_created_on>
+        <sys_id>1b813752c3f103501ff35d02b4013153</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_839216_public_0_health_service_request_v1</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>ua_table_licensing_config_1b813752c3f103501ff35d02b4013153</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-07-03 06:23:51</sys_updated_on>
+    </ua_table_licensing_config>
+</record_update>

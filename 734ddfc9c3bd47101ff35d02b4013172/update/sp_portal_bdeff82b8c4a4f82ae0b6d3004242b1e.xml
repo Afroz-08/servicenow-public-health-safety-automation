@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_portal">
-  <sp_portal action="INSERT_OR_UPDATE">
-    <sys_id>bdeff82b8c4a4f82ae0b6d3004242b1e</sys_id>
-    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
-    <sys_update_name>sp_portal_bdeff82b8c4a4f82ae0b6d3004242b1e</sys_update_name>
-    <alternate_portal/>
-    <communication_channels/>
-    <css_variables/>
-    <dark_theme/>
-    <default>false</default>
-    <embeddable_macroponents/>
-    <enable_ais>false</enable_ais>
-    <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
-    <enable_embeddables>false</enable_embeddables>
-    <enable_favorites>false</enable_favorites>
-    <hide_portal_name>false</hide_portal_name>
-    <homepage id="x_839216_public_0_home">93ad2f12c96441aab930e718914970ad</homepage>
-    <icon/>
-    <inactive>false</inactive>
-    <kb_knowledge_base/>
-    <kb_knowledge_page/>
-    <login_page>6995a144cb11120000f8d856634c9c25</login_page>
-    <logo/>
-    <logo_alt_text/>
-    <notfound_page>3c2c9063cb11020000f8d856634c9c1f</notfound_page>
-    <quick_start_config/>
-    <rtl_enabled>false</rtl_enabled>
-    <sc_catalog/>
-    <sc_catalog_page>9f12251147132100ba13a5554ee490f4</sc_catalog_page>
-    <sc_category_page/>
-    <search_application/>
-    <search_results_configuration/>
-    <sp_chat_queue/>
-    <sp_rectangle_menu>b9dd9a883df24abdb0cf3bfcf14db298</sp_rectangle_menu>
-    <theme>281507c44317d210ca4c1f425db8f2fd</theme>
-    <title>Public Health Safety Portal</title>
-    <ts_index_group/>
-    <url_suffix>x_839216_public_0_health</url_suffix>
-  </sp_portal>
+    <sp_portal action="INSERT_OR_UPDATE">
+        <alternate_portal/>
+        <communication_channels/>
+        <css_variables/>
+        <dark_theme/>
+        <default>false</default>
+        <embeddable_macroponents/>
+        <enable_ais>false</enable_ais>
+        <enable_certificate_based_authentication>false</enable_certificate_based_authentication>
+        <enable_embeddables>false</enable_embeddables>
+        <enable_favorites>false</enable_favorites>
+        <hide_portal_name>false</hide_portal_name>
+        <homepage display_value="x_839216_public_0_home">93ad2f12c96441aab930e718914970ad</homepage>
+        <icon/>
+        <inactive>false</inactive>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page display_value="login">6995a144cb11120000f8d856634c9c25</login_page>
+        <logo/>
+        <logo_alt_text/>
+        <notfound_page display_value="404">3c2c9063cb11020000f8d856634c9c1f</notfound_page>
+        <quick_start_config/>
+        <rtl_enabled>false</rtl_enabled>
+        <sc_catalog/>
+        <sc_catalog_page display_value="sc_cat_item">9f12251147132100ba13a5554ee490f4</sc_catalog_page>
+        <sc_category_page/>
+        <search_application/>
+        <search_results_configuration/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu display_value="Public Health Portal Menu">b9dd9a883df24abdb0cf3bfcf14db298</sp_rectangle_menu>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 20:19:29</sys_created_on>
+        <sys_id>bdeff82b8c4a4f82ae0b6d3004242b1e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Public Health Safety Portal</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sp_portal_bdeff82b8c4a4f82ae0b6d3004242b1e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 20:19:29</sys_updated_on>
+        <theme display_value="Coral">281507c44317d210ca4c1f425db8f2fd</theme>
+        <title>Public Health Safety Portal</title>
+        <ts_index_group/>
+        <url_suffix>x_839216_public_0_health</url_suffix>
+    </sp_portal>
+    <sys_translated_text action="delete_multiple" query="documentkey=bdeff82b8c4a4f82ae0b6d3004242b1e"/>
 </record_update>

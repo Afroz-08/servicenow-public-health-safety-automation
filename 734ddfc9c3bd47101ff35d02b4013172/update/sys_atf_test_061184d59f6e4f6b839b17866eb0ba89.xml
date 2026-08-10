@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test">
-  <sys_atf_test action="INSERT_OR_UPDATE">
-    <sys_id>061184d59f6e4f6b839b17866eb0ba89</sys_id>
-    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
-    <sys_update_name>sys_atf_test_061184d59f6e4f6b839b17866eb0ba89</sys_update_name>
-    <active>true</active>
-    <description>Inserts a health_inpection request with low urgency, then validates the Determine Priority action produces priority=low and the Determine Assignment Group action routes to Health Support group via the Assignment Matrix decision table.</description>
-    <fail_on_server_error>true</fail_on_server_error>
-    <name>Test A - Health Inspection Low Urgency Routes to Health Support</name>
-  </sys_atf_test>
+    <sys_atf_test action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Inserts a health_inpection request with low urgency, then validates the Determine Priority action produces priority=low and the Determine Assignment Group action routes to Health Support group via the Assignment Matrix decision table.</description>
+        <enable_parameterized_testing>false</enable_parameterized_testing>
+        <fail_on_server_error>true</fail_on_server_error>
+        <name>Test A - Health Inspection Low Urgency Routes to Health Support</name>
+        <parameters/>
+        <remember/>
+        <sn_atf_tg_generated>false</sn_atf_tg_generated>
+        <sys_class_name>sys_atf_test</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 19:35:33</sys_created_on>
+        <sys_id>061184d59f6e4f6b839b17866eb0ba89</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Test A - Health Inspection Low Urgency Routes to Health Support</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sys_atf_test_061184d59f6e4f6b839b17866eb0ba89</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 19:35:33</sys_updated_on>
+        <test_origin/>
+    </sys_atf_test>
+    <sys_variable_value action="delete_multiple" query="document_key=061184d59f6e4f6b839b17866eb0ba89"/>
 </record_update>

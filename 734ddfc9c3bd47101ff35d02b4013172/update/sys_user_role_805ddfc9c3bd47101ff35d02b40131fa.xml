@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description>Processes healthcare service requests, manages approvals, updates request status, and coordinates workflow activities.</description>
+        <elevated_privilege>false</elevated_privilege>
+        <federated_id>UhNNci3qHF5hVo35YKgq6PO1lqqr67rYH3/J6uOddzY=</federated_id>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_839216_public_0.public_health_agent</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>public_health_agent</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-06-29 07:43:02</sys_created_on>
+        <sys_id>805ddfc9c3bd47101ff35d02b40131fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_839216_public_0.public_health_agent</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sys_user_role_805ddfc9c3bd47101ff35d02b40131fa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-06-29 07:43:02</sys_updated_on>
+    </sys_user_role>
+</record_update>

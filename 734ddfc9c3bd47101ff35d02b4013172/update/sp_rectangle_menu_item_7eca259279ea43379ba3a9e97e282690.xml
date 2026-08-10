@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rectangle_menu_item">
-  <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
-    <sys_id>7eca259279ea43379ba3a9e97e282690</sys_id>
-    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
-    <sys_update_name>sp_rectangle_menu_item_7eca259279ea43379ba3a9e97e282690</sys_update_name>
-    <active>true</active>
-    <color>default</color>
-    <condition/>
-    <display_1/>
-    <display_2/>
-    <display_date/>
-    <filter/>
-    <glyph>home</glyph>
-    <hint/>
-    <kb_article/>
-    <kb_category/>
-    <kb_topic/>
-    <label>Home</label>
-    <order>100</order>
-    <record_script/>
-    <roles/>
-    <sc_cat_item/>
-    <sc_category/>
-    <short_description/>
-    <sp_page id="x_839216_public_0_home">93ad2f12c96441aab930e718914970ad</sp_page>
-    <sp_rectangle_menu>b9dd9a883df24abdb0cf3bfcf14db298</sp_rectangle_menu>
-    <sp_rectangle_menu_item/>
-    <table/>
-    <type>page</type>
-    <url/>
-    <url_target/>
-  </sp_rectangle_menu_item>
+    <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <color>default</color>
+        <condition/>
+        <display_1/>
+        <display_2/>
+        <display_date/>
+        <filter/>
+        <glyph>home</glyph>
+        <hint/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <label>Home</label>
+        <order>100</order>
+        <record_script/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <sp_page display_value="x_839216_public_0_home">93ad2f12c96441aab930e718914970ad</sp_page>
+        <sp_rectangle_menu display_value="Public Health Portal Menu">b9dd9a883df24abdb0cf3bfcf14db298</sp_rectangle_menu>
+        <sp_rectangle_menu_item/>
+        <sys_class_name>sp_rectangle_menu_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 20:19:29</sys_created_on>
+        <sys_id>7eca259279ea43379ba3a9e97e282690</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Home</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sp_rectangle_menu_item_7eca259279ea43379ba3a9e97e282690</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 20:19:29</sys_updated_on>
+        <table/>
+        <type>page</type>
+        <url/>
+        <url_target/>
+    </sp_rectangle_menu_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=7eca259279ea43379ba3a9e97e282690"/>
 </record_update>

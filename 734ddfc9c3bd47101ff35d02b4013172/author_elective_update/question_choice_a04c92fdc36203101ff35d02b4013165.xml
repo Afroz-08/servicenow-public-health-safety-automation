@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice">
+    <question_choice action="DELETE">
+        <inactive>false</inactive>
+        <misc>0</misc>
+        <order>400</order>
+        <published_ref/>
+        <question display_value="Request Type">bf2a1ab9c36203101ff35d02b40131f2</question>
+        <rec_misc>0</rec_misc>
+        <sys_class_name>question_choice</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 17:41:44</sys_created_on>
+        <sys_id>a04c92fdc36203101ff35d02b4013165</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Appointment</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>question_choice_a04c92fdc36203101ff35d02b4013165</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 17:41:44</sys_updated_on>
+        <text>Appointment</text>
+        <value>appointment</value>
+    </question_choice>
+    <fx_price action="DELETE" query="id=a04c92fdc36203101ff35d02b4013165"/>
+    <fx_price action="DELETE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>misc</field>
+        <id>a04c92fdc36203101ff35d02b4013165</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 17:41:44</sys_created_on>
+        <sys_id>d25c96fdc36203101ff35d02b4013120</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 17:41:44</sys_updated_on>
+        <table>question_choice</table>
+        <type>calculated</type>
+    </fx_price>
+    <fx_price action="DELETE">
+        <amount>0</amount>
+        <currency display_value="USD">USD</currency>
+        <field>rec_misc</field>
+        <id>a04c92fdc36203101ff35d02b4013165</id>
+        <parent/>
+        <reference_amount>0</reference_amount>
+        <reference_currency display_value="USD">USD</reference_currency>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 17:41:44</sys_created_on>
+        <sys_id>9a5c96fdc36203101ff35d02b401311f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 17:41:44</sys_updated_on>
+        <table>question_choice</table>
+        <type>calculated</type>
+    </fx_price>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</application>
+        <file_path/>
+        <instance_id>d47d66b5db52f91092f5684e139619b4</instance_id>
+        <instance_name>dev204595</instance_name>
+        <name>question_choice_a04c92fdc36203101ff35d02b4013165</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice"><question_choice action="INSERT_OR_UPDATE"><inactive>false</inactive><misc>0</misc><order>400</order><published_ref/><question display_value="Request Type">bf2a1ab9c36203101ff35d02b40131f2</question><rec_misc>0</rec_misc><sys_class_name>question_choice</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 17:41:44</sys_created_on><sys_id>a04c92fdc36203101ff35d02b4013165</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Appointment</sys_name><sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package><sys_policy/><sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope><sys_update_name>question_choice_a04c92fdc36203101ff35d02b4013165</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 17:41:44</sys_updated_on><text>Appointment</text><value>appointment</value></question_choice><fx_price action="delete_multiple" query="id=a04c92fdc36203101ff35d02b4013165"/><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>misc</field><id>a04c92fdc36203101ff35d02b4013165</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 17:41:44</sys_created_on><sys_id>d25c96fdc36203101ff35d02b4013120</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 17:41:44</sys_updated_on><table>question_choice</table><type>calculated</type></fx_price><fx_price action="INSERT_OR_UPDATE"><amount>0</amount><currency display_value="USD">USD</currency><field>rec_misc</field><id>a04c92fdc36203101ff35d02b4013165</id><parent/><reference_amount>0</reference_amount><reference_currency display_value="USD">USD</reference_currency><sys_created_by>admin</sys_created_by><sys_created_on>2026-08-07 17:41:44</sys_created_on><sys_id>9a5c96fdc36203101ff35d02b401311f</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-08-07 17:41:44</sys_updated_on><table>question_choice</table><type>calculated</type></fx_price></record_update>]]></payload>
+        <payload_hash>440848183</payload_hash>
+        <record_name>Appointment</record_name>
+        <reverted_from/>
+        <source>b74ddfc9c3bd47101ff35d02b40131f1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-07 17:41:44</sys_created_on>
+        <sys_id>125c96fdc36203101ff35d02b4013124</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19fdd510ed80000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-07 17:41:44</sys_updated_on>
+        <type>Question Choice</type>
+        <update_guid>de5c96fdd262031029377a298497f922</update_guid>
+        <update_guid_history>de5c96fdd262031029377a298497f922:440848183</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Appointment">49bc452ec32a47101ff35d02b401313c</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 19:49:12</sys_created_on>
+        <sys_db_object display_value="" name="question_choice">question_choice</sys_db_object>
+        <sys_id>5063a488ac1f4008aedebc3cbd224a84</sys_id>
+        <sys_metadata>a04c92fdc36203101ff35d02b4013165</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Appointment</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_scope_delete display_value="">20c3d51a84da411c93b911e2f3505f69</sys_scope_delete>
+        <sys_update_name>question_choice_a04c92fdc36203101ff35d02b4013165</sys_update_name>
+        <sys_update_version display_value="question_choice_a04c92fdc36203101ff35d02b4013165">125c96fdc36203101ff35d02b4013124</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 19:49:12</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
-  <sp_widget action="INSERT_OR_UPDATE">
-    <sys_id>5ceedb00be18418d96963d335149718b</sys_id>
-    <sys_scope display_value="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
-    <sys_update_name>sp_widget_5ceedb00be18418d96963d335149718b</sys_update_name>
-    <category>custom</category>
-    <client_script><![CDATA[api.controller = function($location) {
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($location) {
     var c = this;
 
     c.services = [
@@ -31,8 +28,8 @@
     };
 };
 ]]></client_script>
-    <controller_as>c</controller_as>
-    <css><![CDATA[/* Hero Section */
+        <controller_as>c</controller_as>
+        <css>/* Hero Section */
 .sp-hero {
     background: linear-gradient(135deg, #0a6e7a 0%, #0d8a8f 40%, #11a3a0 100%);
     border-radius: 8px;
@@ -302,22 +299,22 @@
         margin-bottom: 24px;
     }
 }
-]]></css>
-    <data_table>sp_instance</data_table>
-    <demo_data/>
-    <description/>
-    <docs/>
-    <field_list/>
-    <has_preview>false</has_preview>
-    <id>x_839216_public_0_home_hero</id>
-    <internal>false</internal>
-    <link><![CDATA[function link(scope, element, attrs, controller) {
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>x_839216_public_0_home_hero</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
 }]]></link>
-    <name>Public Health Home Hero</name>
-    <option_schema/>
-    <public>false</public>
-    <roles/>
-    <script><![CDATA[(function() {
+        <name>Public Health Home Hero</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
     data.userName = gs.getUserName();
     var userGr = new GlideRecord('sys_user');
     if (userGr.get(gs.getUserID())) {
@@ -328,8 +325,20 @@
     data.recordProducerSysId = 'd7379635c36203101ff35d02b4013193';
 })();
 ]]></script>
-    <servicenow>false</servicenow>
-    <template><![CDATA[<!-- Hero Section -->
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 20:19:30</sys_created_on>
+        <sys_id>5ceedb00be18418d96963d335149718b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Public Health Home Hero</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sp_widget_5ceedb00be18418d96963d335149718b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 20:19:30</sys_updated_on>
+        <template><![CDATA[<!-- Hero Section -->
 <div class="sp-hero">
     <div class="sp-hero-inner">
         <div class="sp-hero-text">
@@ -382,5 +391,5 @@
     </div>
 </div>
 ]]></template>
-  </sp_widget>
+    </sp_widget>
 </record_update>

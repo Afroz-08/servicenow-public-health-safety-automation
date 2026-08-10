@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>b7d06534c302c3901ff35d02b401319b</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_question">
+    <sys_decision_question action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <answer>d7d06534c302c3901ff35d02b4013160</answer>
+        <condition table="var__m_sys_decision_input_bf5a9df0c3ce83901ff35d02b401317a">u_request_type=emergency_support^u_urgency=critical^EQ<item display_value="Emergency Support" endquery="false" field="u_request_type" goto="false" newquery="false" operator="=" or="false" value="emergency_support"/>
+            <item display_value="Critical" endquery="false" field="u_urgency" goto="false" newquery="false" operator="=" or="false" value="critical"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <decision_table display_value="Health Request Priority Matrix">bf5a9df0c3ce83901ff35d02b401317a</decision_table>
+        <default_answer>false</default_answer>
+        <input_table>var__m_sys_decision_input_bf5a9df0c3ce83901ff35d02b401317a</input_table>
+        <label>Health Request Priority Matrix_100</label>
+        <marked_for_deletion>false</marked_for_deletion>
+        <order>100</order>
+        <sys_class_name>sys_decision_question</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-07-10 14:16:33</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b7d06534c302c3901ff35d02b401319b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Health Request Priority Matrix_100</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sys_decision_question_b7d06534c302c3901ff35d02b401319b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-07-10 14:16:33</sys_updated_on>
+    </sys_decision_question>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-07-10 14:16:33</sys_created_on>
+        <sys_id>bbd06534c302c3901ff35d02b40131a0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Health Request Priority Matrix_100</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sys_metadata_link_bbd06534c302c3901ff35d02b40131a0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-07-10 14:16:33</sys_updated_on>
+        <tablename>sys_decision_question</tablename>
+    </sys_metadata_link>
+</record_update>

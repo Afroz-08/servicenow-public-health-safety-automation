@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity">
+    <oauth_entity action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <access_token_lifespan>1800</access_token_lifespan>
+        <active>true</active>
+        <allow_snc_user_exchange>false</allow_snc_user_exchange>
+        <auth_aig_client>false</auth_aig_client>
+        <auth_cimd_client>false</auth_cimd_client>
+        <auth_code_lifespan>60</auth_code_lifespan>
+        <auth_url/>
+        <bff_cookie_exchange_allowed>false</bff_cookie_exchange_allowed>
+        <bind_token_to_session>false</bind_token_to_session>
+        <certificate_url/>
+        <client_id>1624ac93b46221009eb8191f0e41680d</client_id>
+        <client_secret>﷞﷟﷒31094f81c33d47101ff35d02b40131e4﷬﷔1﷬﷭SOkqFR5VnWw2hKz17JzogA==kr4rTDYnzIf7HZ5OCKts78GW01ze6Ib5FPjnOaDxDn_WseY6﷮﷯</client_secret>
+        <client_type/>
+        <client_uuid>b39199e6c36a47101ff35d02b401319d</client_uuid>
+        <code_challenge_method>S256</code_challenge_method>
+        <comments>Used by the service WebKit HTML to PDF</comments>
+        <default_grant_type>password</default_grant_type>
+        <extend_refresh_token_expiry>false</extend_refresh_token_expiry>
+        <id_token_lifespan>86400</id_token_lifespan>
+        <inbound_grant_type>ropc</inbound_grant_type>
+        <jwt_provider/>
+        <login_url/>
+        <logo_url/>
+        <message_signature_lifespan>60</message_signature_lifespan>
+        <mobile_client>false</mobile_client>
+        <name>WebKit HTML to PDF</name>
+        <oauth_api_script/>
+        <only_rest_processor>false</only_rest_processor>
+        <protocol_name/>
+        <public_client>false</public_client>
+        <redirect_url/>
+        <refresh_token_lifespan>8640000</refresh_token_lifespan>
+        <refresh_token_url/>
+        <restricted_binding>false</restricted_binding>
+        <revoke_token_url/>
+        <salt/>
+        <scope_restriction_status>unrestricted</scope_restriction_status>
+        <send_client_credentials_as>request_body_parameter</send_client_credentials_as>
+        <skip_authorize>false</skip_authorize>
+        <sub_claim>sys_id</sub_claim>
+        <sys_class_name>oauth_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 20:10:41</sys_created_on>
+        <sys_id>739199e6c36a47101ff35d02b401319d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>WebKit HTML to PDF</sys_name>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>oauth_entity_739199e6c36a47101ff35d02b401319d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 20:10:41</sys_updated_on>
+        <token_format>opaque</token_format>
+        <token_url/>
+        <type>client</type>
+        <use_mutual_auth>false</use_mutual_auth>
+        <use_pkce>false</use_pkce>
+        <user/>
+    </oauth_entity>
+</record_update>

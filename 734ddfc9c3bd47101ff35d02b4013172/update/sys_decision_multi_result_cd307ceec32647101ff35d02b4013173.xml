@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_decision_multi_result">
+    <sys_decision_multi_result action="INSERT_OR_UPDATE">
+        <decision_table display_value="Health Request Assignment Matrix">9f5da86ac32647101ff35d02b4013121</decision_table>
+        <label>Assignment Group: Medical Assistance</label>
+        <result_elements/>
+        <sys_class_name>sys_decision_multi_result</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 17:44:41</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cd307ceec32647101ff35d02b4013173</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Assignment Group: Medical Assistance</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Public Health Safety Automation" source="x_839216_public_0">734ddfc9c3bd47101ff35d02b4013172</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Public Health Safety Automation">734ddfc9c3bd47101ff35d02b4013172</sys_scope>
+        <sys_update_name>sys_decision_multi_result_cd307ceec32647101ff35d02b4013173</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 17:44:41</sys_updated_on>
+    </sys_decision_multi_result>
+    <sys_variable_value action="delete_multiple" query="document_key=cd307ceec32647101ff35d02b4013173"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_decision_multi_result</document>
+        <document_key>cd307ceec32647101ff35d02b4013173</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-08-09 17:44:41</sys_created_on>
+        <sys_id>85307ceec32647101ff35d02b4013174</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-08-09 17:44:41</sys_updated_on>
+        <value>9f7c2ce6c32647101ff35d02b40131dd</value>
+        <variable display_value="Assignment Group">b0307ceec32647101ff35d02b401310c</variable>
+    </sys_variable_value>
+</record_update>

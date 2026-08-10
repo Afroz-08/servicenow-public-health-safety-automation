@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="43813752c3f103501ff35d02b4013111" label="Health Service Request v1" max_length="40" name="x_839216_public_0_health_service_request_v1" type="collection">
+        <element label="Assignment Group" max_length="32" name="assignment_group" reference="sys_user_group" type="reference"/>
+        <element choice="3" label="Urgency" max_length="40" name="u_urgency" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Critical" sequence="3" value="critical"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+            </choice>
+        </element>
+        <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element label="Symptoms" max_length="500" name="u_symptoms" type="string"/>
+        <element label="Number" max_length="40" name="number" type="string"/>
+        <index name="index">
+            <element name="assignment_group"/>
+        </index>
+        <index name="index2">
+            <element name="sys_class_name"/>
+        </index>
+    </element>
+</database>
