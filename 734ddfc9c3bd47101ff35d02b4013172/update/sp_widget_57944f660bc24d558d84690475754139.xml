@@ -7,8 +7,27 @@
     <client_script><![CDATA[api.controller = function($location) {
     var c = this;
 
+    c.statusFilter = '';
+    c.priorityFilter = '';
+
     c.viewDetail = function(record) {
         $location.search({id: 'x_839216_public_0_detail', sys_id: record.sys_id});
+    };
+
+    c.applyFilter = function() {
+        c.server.get({
+            action: 'filter',
+            statusFilter: c.statusFilter,
+            priorityFilter: c.priorityFilter
+        }).then(function(response) {
+            c.data.records = response.data.records;
+        });
+    };
+
+    c.clearFilters = function() {
+        c.statusFilter = '';
+        c.priorityFilter = '';
+        c.applyFilter();
     };
 
     c.getStatusClass = function(status) {
@@ -29,18 +48,139 @@
         if (p === 'medium') return 'label-info';
         return 'label-default';
     };
+
+    c.getUrgencyClass = function(urgency) {
+        if (!urgency) return 'label-default';
+        var u = urgency.toLowerCase();
+        if (u === 'critical') return 'label-danger';
+        if (u === 'high') return 'label-warning';
+        if (u === 'medium') return 'label-info';
+        return 'label-default';
+    };
+
+    c.getTypeIcon = function(type) {
+        if (!type) return 'glyphicon-file';
+        var t = type.toLowerCase();
+        if (t.indexOf('inspection') > -1) return 'glyphicon-search';
+        if (t.indexOf('medical') > -1) return 'glyphicon-heart';
+        if (t.indexOf('vaccination') > -1) return 'glyphicon-plus-sign';
+        if (t.indexOf('appointment') > -1) return 'glyphicon-calendar';
+        if (t.indexOf('emergency') > -1) return 'glyphicon-flash';
+        return 'glyphicon-file';
+    };
 };
 ]]></client_script>
     <controller_as>c</controller_as>
-    <css><![CDATA[.sp-card-body-flush {
+    <css><![CDATA[/* List Panel */
+.sp-list-panel {
+    border: 1px solid #e8edf2;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+.sp-list-heading {
+    background: #f8fafb;
+    border-bottom: 1px solid #e8edf2;
+    padding: 14px 20px;
+}
+.sp-list-heading .panel-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a2b3c;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sp-count-badge {
+    background: #0d8a8f;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-left: auto;
+}
+
+/* Filter Row */
+.sp-filter-row {
+    background: #f8fafb;
+    border-bottom: 1px solid #e8edf2;
+    padding: 12px 20px;
+}
+.sp-filter-select {
+    font-size: 13px;
+    height: 34px;
+    border-radius: 4px;
+    border: 1px solid #d4dbe3;
+}
+.sp-filter-select:focus {
+    border-color: #0d8a8f;
+    box-shadow: 0 0 0 2px rgba(13, 138, 143, 0.1);
+}
+.sp-clear-btn {
+    margin-top: 0;
+    font-size: 12px;
+    height: 34px;
+}
+
+/* Table */
+.sp-card-body-flush {
     padding: 0;
+}
+.sp-request-table {
+    margin-bottom: 0;
+}
+.sp-request-table thead th {
+    background: #f8fafb;
+    font-size: 11px;
+    font-weight: 600;
+    color: #5a6b7c;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-bottom: 2px solid #e8edf2;
+    padding: 10px 14px;
+    white-space: nowrap;
+}
+.sp-request-table tbody td {
+    font-size: 13px;
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-top: 1px solid #f1f5f9;
 }
 .sp-clickable-row {
     cursor: pointer;
+    transition: background 0.15s ease;
 }
 .sp-clickable-row:hover {
-    background: $background-secondary;
+    background: #f0fdfa !important;
 }
+.sp-number-link {
+    color: #0d8a8f;
+    font-size: 13px;
+}
+.sp-clickable-row:hover .sp-number-link {
+    text-decoration: underline;
+}
+.sp-type-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #3a4b5c;
+}
+.sp-type-indicator .glyphicon {
+    font-size: 12px;
+    color: #0d8a8f;
+}
+.sp-approval-text {
+    font-size: 13px;
+    color: #5a6b7c;
+}
+.sp-date-col {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* Empty State */
 .sp-empty-state {
     padding: 64px 24px;
 }
@@ -48,14 +188,20 @@
     font-size: 48px;
     margin-bottom: 16px;
     display: block;
-    opacity: 0.35;
-    color: $text-muted;
+    opacity: 0.3;
+    color: #8a9aab;
 }
 .sp-empty-title {
-    font-size: $font-size-large;
+    font-size: 18px;
     font-weight: 600;
-    color: $text-color;
+    color: #1a2b3c;
     margin-bottom: 8px;
+}
+
+@media (max-width: 767px) {
+    .sp-filter-row .col-sm-3 {
+        margin-bottom: 8px;
+    }
 }
 ]]></css>
     <data_table>sp_instance</data_table>
@@ -66,8 +212,8 @@
     <has_preview>false</has_preview>
     <id>x_839216_public_0_request_list</id>
     <internal>false</internal>
-    <link>function link(scope, element, attrs, controller) {
-}</link>
+    <link><![CDATA[function link(scope, element, attrs, controller) {
+}]]></link>
     <name>Public Health Request List</name>
     <option_schema>[{"name":"filter_by_user","label":"Filter by current user","type":"boolean","default_value":"true","section":"Data"},{"name":"title","label":"Widget Title","type":"string","default_value":"Health Service Requests","section":"Presentation"}]</option_schema>
     <public>false</public>
@@ -79,9 +225,21 @@
     data.filterByUser = options.filter_by_user === 'true' || options.filter_by_user === true;
 
     var gr = new GlideRecord(table);
+
     if (data.filterByUser) {
         gr.addQuery('sys_created_by', gs.getUserName());
     }
+
+    // Handle server-side filtering
+    if (input && input.action === 'filter') {
+        if (input.statusFilter) {
+            gr.addQuery('u_status', input.statusFilter);
+        }
+        if (input.priorityFilter) {
+            gr.addQuery('u_priority', input.priorityFilter);
+        }
+    }
+
     gr.orderByDesc('sys_created_on');
     gr.setLimit(100);
     gr.query();
@@ -93,6 +251,7 @@
             u_urgency: gr.getDisplayValue('u_urgency') + '',
             u_priority: gr.getDisplayValue('u_priority') + '',
             u_status: gr.getDisplayValue('u_status') + '',
+            u_approval_status: gr.getDisplayValue('u_approval_status') + '',
             assignment_group: gr.getDisplayValue('assignment_group') + '',
             u_citizen_name: gr.getValue('u_citizen_name') + '',
             sys_created_on: gr.getDisplayValue('sys_created_on') + ''
@@ -101,17 +260,48 @@
 })();
 ]]></script>
     <servicenow>false</servicenow>
-    <template><![CDATA[<div class="panel panel-default">
-    <div class="panel-heading">
+    <template><![CDATA[<div class="panel panel-default sp-list-panel">
+    <div class="panel-heading sp-list-heading">
         <h3 class="panel-title">
             <span class="glyphicon glyphicon-list-alt"></span>
             {{c.data.title}}
-            <span class="badge pull-right">{{c.data.records.length}}</span>
+            <span class="badge sp-count-badge">{{c.data.records.length}}</span>
         </h3>
     </div>
+
+    <!-- Filter Row (for agents) -->
+    <div class="sp-filter-row" ng-if="!c.data.filterByUser">
+        <div class="row">
+            <div class="col-sm-3 col-xs-6">
+                <select class="form-control sp-filter-select" ng-model="c.statusFilter" ng-change="c.applyFilter()">
+                    <option value="">All Statuses</option>
+                    <option value="submitted">Submitted</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <select class="form-control sp-filter-select" ng-model="c.priorityFilter" ng-change="c.applyFilter()">
+                    <option value="">All Priorities</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                    <option value="critical">Critical</option>
+                </select>
+            </div>
+            <div class="col-sm-2 col-xs-12">
+                <button type="button" class="btn btn-default btn-sm sp-clear-btn" ng-click="c.clearFilters()" ng-if="c.statusFilter || c.priorityFilter">
+                    <span class="glyphicon glyphicon-remove"></span> Clear
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table -->
     <div class="panel-body sp-card-body-flush" ng-if="c.data.records.length > 0">
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover sp-request-table">
                 <thead>
                     <tr>
                         <th>Number</th>
@@ -119,6 +309,7 @@
                         <th>Urgency</th>
                         <th>Priority</th>
                         <th>Status</th>
+                        <th>Approval</th>
                         <th>Assignment Group</th>
                         <th>Created</th>
                     </tr>
@@ -127,23 +318,32 @@
                     <tr ng-repeat="record in c.data.records track by record.sys_id"
                         ng-click="c.viewDetail(record)"
                         class="sp-clickable-row">
-                        <td><strong>{{record.number}}</strong></td>
-                        <td>{{record.u_request_type}}</td>
-                        <td>{{record.u_urgency}}</td>
+                        <td><strong class="sp-number-link">{{record.number}}</strong></td>
+                        <td>
+                            <span class="sp-type-indicator">
+                                <span class="glyphicon" ng-class="c.getTypeIcon(record.u_request_type)"></span>
+                                {{record.u_request_type}}
+                            </span>
+                        </td>
+                        <td><span class="label" ng-class="c.getUrgencyClass(record.u_urgency)">{{record.u_urgency}}</span></td>
                         <td><span class="label" ng-class="c.getPriorityClass(record.u_priority)">{{record.u_priority}}</span></td>
                         <td><span class="label" ng-class="c.getStatusClass(record.u_status)">{{record.u_status}}</span></td>
-                        <td>{{record.assignment_group}}</td>
-                        <td class="text-muted">{{record.sys_created_on}}</td>
+                        <td><span class="sp-approval-text">{{record.u_approval_status || '—'}}</span></td>
+                        <td class="text-muted">{{record.assignment_group || 'Unassigned'}}</td>
+                        <td class="text-muted sp-date-col">{{record.sys_created_on}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <!-- Empty State -->
     <div class="panel-body text-center" ng-if="c.data.records.length === 0">
         <div class="sp-empty-state">
             <span class="glyphicon glyphicon-inbox sp-empty-icon"></span>
-            <h4 class="sp-empty-title">No requests found</h4>
-            <p class="text-muted">There are no health service requests to display.</p>
+            <h4 class="sp-empty-title">No Requests Found</h4>
+            <p class="text-muted" ng-if="c.data.filterByUser">You haven't submitted any health service requests yet. Submit your first request to get started.</p>
+            <p class="text-muted" ng-if="!c.data.filterByUser">No health service requests match the current filters.</p>
         </div>
     </div>
 </div>

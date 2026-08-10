@@ -11,52 +11,213 @@
         if (!max || max === 0) return '0%';
         return Math.round((count / max) * 100) + '%';
     };
+
+    c.getStatusClass = function(status) {
+        if (!status) return 'label-default';
+        var s = status.toLowerCase();
+        if (s === 'approved') return 'label-success';
+        if (s === 'in_progress' || s === 'in progress') return 'label-warning';
+        if (s === 'rejected') return 'label-danger';
+        if (s === 'submitted') return 'label-info';
+        return 'label-default';
+    };
+
+    c.getPriorityClass = function(priority) {
+        if (!priority) return 'label-default';
+        var p = priority.toLowerCase();
+        if (p === 'critical') return 'label-danger';
+        if (p === 'high') return 'label-warning';
+        if (p === 'medium') return 'label-info';
+        return 'label-default';
+    };
 };
 ]]></client_script>
     <controller_as>c</controller_as>
-    <css><![CDATA[.sp-bar-row {
+    <css><![CDATA[/* KPI Cards Row */
+.sp-kpi-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+.sp-kpi-card {
+    flex: 1;
+    min-width: 160px;
+    background: #ffffff;
+    border: 1px solid #e8edf2;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s ease;
+}
+.sp-kpi-card:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+.sp-kpi-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.sp-kpi-icon-wrap .glyphicon {
+    font-size: 18px;
+}
+.sp-kpi-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a2b3c;
+    line-height: 1;
+}
+.sp-kpi-label {
+    font-size: 12px;
+    color: #6b7b8c;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* KPI Color Variants */
+.sp-kpi-total .sp-kpi-icon-wrap {
+    background: #eff6ff;
+}
+.sp-kpi-total .sp-kpi-icon-wrap .glyphicon {
+    color: #3b82f6;
+}
+.sp-kpi-submitted .sp-kpi-icon-wrap {
+    background: #ecfeff;
+}
+.sp-kpi-submitted .sp-kpi-icon-wrap .glyphicon {
+    color: #0891b2;
+}
+.sp-kpi-progress .sp-kpi-icon-wrap {
+    background: #fffbeb;
+}
+.sp-kpi-progress .sp-kpi-icon-wrap .glyphicon {
+    color: #d97706;
+}
+.sp-kpi-approved .sp-kpi-icon-wrap {
+    background: #ecfdf5;
+}
+.sp-kpi-approved .sp-kpi-icon-wrap .glyphicon {
+    color: #059669;
+}
+.sp-kpi-rejected .sp-kpi-icon-wrap {
+    background: #fef2f2;
+}
+.sp-kpi-rejected .sp-kpi-icon-wrap .glyphicon {
+    color: #dc2626;
+}
+
+/* Chart Panels */
+.sp-chart-panel {
+    border: 1px solid #e8edf2;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+}
+.sp-chart-panel .panel-heading {
+    background: #f8fafb;
+    border-bottom: 1px solid #e8edf2;
+}
+
+/* Bar Chart Rows */
+.sp-bar-row {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 12px;
 }
 .sp-bar-label {
-    font-size: $font-size-small;
-    color: $text-color;
-    min-width: 100px;
+    font-size: 13px;
+    color: #3a4b5c;
+    min-width: 110px;
     flex-shrink: 0;
 }
 .sp-bar-track {
     flex: 1;
-    height: 20px;
-    background: $background-secondary;
-    border-radius: $border-radius-base;
+    height: 22px;
+    background: #f1f5f9;
+    border-radius: 4px;
     overflow: hidden;
 }
 .sp-bar-fill {
     height: 100%;
-    border-radius: $border-radius-base;
-    transition: width 0.3s ease;
+    border-radius: 4px;
+    transition: width 0.4s ease;
     min-width: 2px;
 }
 .sp-bar-info {
-    background: $brand-info;
+    background: linear-gradient(90deg, #06b6d4, #0891b2);
 }
 .sp-bar-warning {
-    background: $brand-warning;
+    background: linear-gradient(90deg, #f59e0b, #d97706);
 }
 .sp-bar-success {
-    background: $brand-success;
+    background: linear-gradient(90deg, #10b981, #059669);
 }
 .sp-bar-primary {
-    background: $brand-primary;
+    background: linear-gradient(90deg, #0d8a8f, #0a6e7a);
 }
 .sp-bar-count {
-    font-size: $font-size-small;
-    font-weight: 600;
-    color: $text-muted;
-    min-width: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #3a4b5c;
+    min-width: 32px;
     text-align: right;
+}
+
+/* Recent Table */
+.sp-flush-body {
+    padding: 0;
+}
+.sp-recent-table {
+    margin-bottom: 0;
+}
+.sp-recent-table thead th {
+    background: #f8fafb;
+    font-size: 12px;
+    font-weight: 600;
+    color: #5a6b7c;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid #e8edf2;
+    padding: 10px 14px;
+}
+.sp-recent-table tbody td {
+    font-size: 13px;
+    padding: 10px 14px;
+    vertical-align: middle;
+}
+
+/* Urgent Panel */
+.sp-urgent-panel {
+    border-color: #fecaca;
+}
+.sp-urgent-heading {
+    background: #fef2f2 !important;
+    border-bottom-color: #fecaca !important;
+}
+.sp-urgent-heading .panel-title {
+    color: #dc2626;
+}
+
+@media (max-width: 991px) {
+    .sp-kpi-row {
+        flex-wrap: wrap;
+    }
+    .sp-kpi-card {
+        min-width: calc(50% - 16px);
+    }
+}
+@media (max-width: 575px) {
+    .sp-kpi-card {
+        min-width: 100%;
+    }
 }
 ]]></css>
     <data_table>sp_instance</data_table>
@@ -67,8 +228,8 @@
     <has_preview>false</has_preview>
     <id>x_839216_public_0_dashboard_charts</id>
     <internal>false</internal>
-    <link>function link(scope, element, attrs, controller) {
-}</link>
+    <link><![CDATA[function link(scope, element, attrs, controller) {
+}]]></link>
     <name>Public Health Dashboard Charts</name>
     <option_schema/>
     <public>false</public>
@@ -79,6 +240,9 @@
     data.priorityDist = [];
     data.typeDist = [];
     data.groupDist = [];
+    data.recentRequests = [];
+    data.highPriorityRequests = [];
+    data.stats = {total: 0, submitted: 0, in_progress: 0, approved: 0, rejected: 0};
 
     var statusMap = {};
     var priorityMap = {};
@@ -93,6 +257,13 @@
         var priority = gr.getDisplayValue('u_priority') + '';
         var reqType = gr.getDisplayValue('u_request_type') + '';
         var group = gr.getDisplayValue('assignment_group') + '';
+
+        data.stats.total++;
+        var statusLower = status.toLowerCase();
+        if (statusLower === 'submitted') data.stats.submitted++;
+        else if (statusLower === 'in_progress' || statusLower === 'in progress') data.stats.in_progress++;
+        else if (statusLower === 'approved') data.stats.approved++;
+        else if (statusLower === 'rejected') data.stats.rejected++;
 
         statusMap[status] = (statusMap[status] || 0) + 1;
         priorityMap[priority] = (priorityMap[priority] || 0) + 1;
@@ -131,12 +302,95 @@
     for (var l = 0; l < data.groupDist.length; l++) {
         if (data.groupDist[l].count > data.maxGroup) data.maxGroup = data.groupDist[l].count;
     }
+
+    // Recent Requests (last 10)
+    var recentGr = new GlideRecord(table);
+    recentGr.orderByDesc('sys_created_on');
+    recentGr.setLimit(10);
+    recentGr.query();
+    while (recentGr.next()) {
+        data.recentRequests.push({
+            sys_id: recentGr.getUniqueValue(),
+            number: recentGr.getValue('number') + '',
+            u_request_type: recentGr.getDisplayValue('u_request_type') + '',
+            u_priority: recentGr.getDisplayValue('u_priority') + '',
+            u_status: recentGr.getDisplayValue('u_status') + '',
+            sys_created_on: recentGr.getDisplayValue('sys_created_on') + ''
+        });
+    }
+
+    // High/Critical Priority Requests (open only)
+    var urgentGr = new GlideRecord(table);
+    urgentGr.addEncodedQuery('u_priorityINhigh,critical^u_statusINsubmitted,in_progress');
+    urgentGr.orderByDesc('sys_created_on');
+    urgentGr.setLimit(10);
+    urgentGr.query();
+    while (urgentGr.next()) {
+        data.highPriorityRequests.push({
+            sys_id: urgentGr.getUniqueValue(),
+            number: urgentGr.getValue('number') + '',
+            u_request_type: urgentGr.getDisplayValue('u_request_type') + '',
+            u_priority: urgentGr.getDisplayValue('u_priority') + '',
+            u_status: urgentGr.getDisplayValue('u_status') + '',
+            u_citizen_name: urgentGr.getValue('u_citizen_name') + ''
+        });
+    }
 })();
 ]]></script>
     <servicenow>false</servicenow>
-    <template><![CDATA[<div class="row">
+    <template><![CDATA[<!-- KPI Summary Cards -->
+<div class="sp-kpi-row">
+    <div class="sp-kpi-card sp-kpi-total">
+        <div class="sp-kpi-icon-wrap">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </div>
+        <div class="sp-kpi-content">
+            <div class="sp-kpi-value">{{c.data.stats.total}}</div>
+            <div class="sp-kpi-label">Total Requests</div>
+        </div>
+    </div>
+    <div class="sp-kpi-card sp-kpi-submitted">
+        <div class="sp-kpi-icon-wrap">
+            <span class="glyphicon glyphicon-send"></span>
+        </div>
+        <div class="sp-kpi-content">
+            <div class="sp-kpi-value">{{c.data.stats.submitted}}</div>
+            <div class="sp-kpi-label">Submitted</div>
+        </div>
+    </div>
+    <div class="sp-kpi-card sp-kpi-progress">
+        <div class="sp-kpi-icon-wrap">
+            <span class="glyphicon glyphicon-refresh"></span>
+        </div>
+        <div class="sp-kpi-content">
+            <div class="sp-kpi-value">{{c.data.stats.in_progress}}</div>
+            <div class="sp-kpi-label">In Progress</div>
+        </div>
+    </div>
+    <div class="sp-kpi-card sp-kpi-approved">
+        <div class="sp-kpi-icon-wrap">
+            <span class="glyphicon glyphicon-ok-circle"></span>
+        </div>
+        <div class="sp-kpi-content">
+            <div class="sp-kpi-value">{{c.data.stats.approved}}</div>
+            <div class="sp-kpi-label">Approved</div>
+        </div>
+    </div>
+    <div class="sp-kpi-card sp-kpi-rejected">
+        <div class="sp-kpi-icon-wrap">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+        </div>
+        <div class="sp-kpi-content">
+            <div class="sp-kpi-value">{{c.data.stats.rejected}}</div>
+            <div class="sp-kpi-label">Rejected</div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Section -->
+<div class="row">
     <div class="col-md-6 col-xs-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default sp-chart-panel">
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon-stats"></span> Status Distribution</h3>
             </div>
@@ -153,7 +407,7 @@
         </div>
     </div>
     <div class="col-md-6 col-xs-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default sp-chart-panel">
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon-flag"></span> Priority Distribution</h3>
             </div>
@@ -172,7 +426,7 @@
 </div>
 <div class="row">
     <div class="col-md-6 col-xs-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default sp-chart-panel">
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon-th-list"></span> Request Type Distribution</h3>
             </div>
@@ -189,7 +443,7 @@
         </div>
     </div>
     <div class="col-md-6 col-xs-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default sp-chart-panel">
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="glyphicon glyphicon-briefcase"></span> Assignment Group Distribution</h3>
             </div>
@@ -203,6 +457,71 @@
                     <div class="sp-bar-count">{{item.count}}</div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Requests Table -->
+<div class="panel panel-default sp-chart-panel">
+    <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-time"></span> Recent Requests</h3>
+    </div>
+    <div class="panel-body sp-flush-body" ng-if="c.data.recentRequests.length > 0">
+        <div class="table-responsive">
+            <table class="table table-hover sp-recent-table">
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Type</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="req in c.data.recentRequests track by req.sys_id">
+                        <td><strong>{{req.number}}</strong></td>
+                        <td>{{req.u_request_type}}</td>
+                        <td><span class="label" ng-class="c.getPriorityClass(req.u_priority)">{{req.u_priority}}</span></td>
+                        <td><span class="label" ng-class="c.getStatusClass(req.u_status)">{{req.u_status}}</span></td>
+                        <td class="text-muted">{{req.sys_created_on}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-body text-center text-muted" ng-if="c.data.recentRequests.length === 0">
+        No recent requests found.
+    </div>
+</div>
+
+<!-- High Priority Requests -->
+<div class="panel panel-default sp-chart-panel sp-urgent-panel" ng-if="c.data.highPriorityRequests.length > 0">
+    <div class="panel-heading sp-urgent-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon-exclamation-sign"></span> High/Critical Priority Requests</h3>
+    </div>
+    <div class="panel-body sp-flush-body">
+        <div class="table-responsive">
+            <table class="table table-hover sp-recent-table">
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Type</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Citizen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="req in c.data.highPriorityRequests track by req.sys_id">
+                        <td><strong>{{req.number}}</strong></td>
+                        <td>{{req.u_request_type}}</td>
+                        <td><span class="label" ng-class="c.getPriorityClass(req.u_priority)">{{req.u_priority}}</span></td>
+                        <td><span class="label" ng-class="c.getStatusClass(req.u_status)">{{req.u_status}}</span></td>
+                        <td>{{req.u_citizen_name || 'N/A'}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

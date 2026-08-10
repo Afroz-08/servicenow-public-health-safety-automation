@@ -14,20 +14,7 @@
     <glyph/>
     <id/>
     <order>1</order>
-    <placeholder_dimensions>{
-	"mobile": {
-		"height": "250px",
-		"width": "100%"
-	},
-	"desktop": {
-		"height": "250px",
-		"width": "100%"
-	},
-	"tablet": {
-		"height": "250px",
-		"width": "100%"
-	}
-}</placeholder_dimensions>
+    <placeholder_dimensions>{"mobile":{"height":"250px","width":"100%"},"desktop":{"height":"250px","width":"100%"},"tablet":{"height":"250px","width":"100%"}}</placeholder_dimensions>
     <placeholder_dimensions_script>function evaluateConfig(options) { return {
 	"mobile": {
 		"height": "250px",

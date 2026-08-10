@@ -56,8 +56,7 @@
     opacity: 0.5;
     margin-top: 12px;
     display: block;
-}
-]]></css>
+}]]></css>
     <data_table>sp_instance</data_table>
     <demo_data/>
     <description/>
@@ -66,8 +65,8 @@
     <has_preview>false</has_preview>
     <id>x_839216_public_0_stats_cards</id>
     <internal>false</internal>
-    <link>function link(scope, element, attrs, controller) {
-}</link>
+    <link><![CDATA[function link(scope, element, attrs, controller) {
+}]]></link>
     <name>Public Health Stats Cards</name>
     <option_schema/>
     <public>false</public>

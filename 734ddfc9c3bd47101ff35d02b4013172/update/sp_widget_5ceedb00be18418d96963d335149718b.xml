@@ -7,53 +7,84 @@
     <client_script><![CDATA[api.controller = function($location) {
     var c = this;
 
-    c.navigateTo = function(pageId) {
-        $location.search('id', pageId);
-    };
+    c.services = [
+        {id: 'health_inspection', title: 'Health Inspection', description: 'Request a public health inspection or safety assessment.', icon: 'glyphicon-search'},
+        {id: 'medical_assistance', title: 'Medical Assistance', description: 'Request assistance related to a medical/public-health need.', icon: 'glyphicon-heart'},
+        {id: 'vaccination', title: 'Vaccination', description: 'Request vaccination-related services.', icon: 'glyphicon-plus-sign'},
+        {id: 'appointment', title: 'Appointment', description: 'Request or schedule a public health appointment.', icon: 'glyphicon-calendar'},
+        {id: 'emergency_support', title: 'Emergency Support', description: 'Submit an urgent public health support request.', icon: 'glyphicon-flash'}
+    ];
+
+    c.steps = [
+        {num: 1, title: 'Submit Request', description: 'Fill out the health service request form with your details.', icon: 'glyphicon-edit'},
+        {num: 2, title: 'Automatic Priority & Assignment', description: 'The system assigns priority and routes to the right team.', icon: 'glyphicon-cog'},
+        {num: 3, title: 'Review & Approval', description: 'Your request is reviewed and approved by health officials.', icon: 'glyphicon-ok-circle'},
+        {num: 4, title: 'Track Resolution', description: 'Monitor progress and receive updates until completion.', icon: 'glyphicon-eye-open'}
+    ];
 
     c.submitRequest = function() {
         $location.search({id: 'sc_cat_item', sys_id: c.data.recordProducerSysId});
     };
+
+    c.navigateTo = function(pageId) {
+        $location.search({id: pageId});
+    };
 };
 ]]></client_script>
     <controller_as>c</controller_as>
-    <css><![CDATA[.sp-hero {
-    background: linear-gradient(135deg, lighten($brand-primary, 30%) 0%, lighten($brand-primary, 15%) 50%, $brand-primary 100%);
-    border-radius: $border-radius-large;
-    margin-bottom: 24px;
+    <css><![CDATA[/* Hero Section */
+.sp-hero {
+    background: linear-gradient(135deg, #0a6e7a 0%, #0d8a8f 40%, #11a3a0 100%);
+    border-radius: 8px;
+    margin-bottom: 40px;
     overflow: hidden;
     position: relative;
+}
+.sp-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    pointer-events: none;
 }
 .sp-hero::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: rgba($btn-primary-color, 0.15);
+    bottom: -40%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
     pointer-events: none;
 }
 .sp-hero-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 48px;
+    padding: 56px 48px;
     position: relative;
     z-index: 1;
     flex-wrap: wrap;
     gap: 24px;
 }
 .sp-hero-title {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 700;
-    color: $btn-primary-color;
-    margin: 0 0 8px;
+    color: #ffffff;
+    margin: 0 0 12px;
     line-height: 1.2;
 }
 .sp-hero-subtitle {
-    font-size: $font-size-base;
-    color: $btn-primary-color;
-    opacity: 0.85;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.88);
     margin: 0;
-    max-width: 560px;
+    max-width: 520px;
+    line-height: 1.6;
 }
 .sp-hero-actions {
     display: flex;
@@ -61,40 +92,215 @@
     flex-wrap: wrap;
 }
 .sp-hero-btn {
-    background: rgba($btn-primary-color, 0.9);
-    color: $brand-primary;
+    background: #ffffff;
+    color: #0a6e7a;
     border: none;
-    border-radius: $border-radius-base;
-    height: 44px;
-    padding: 0 20px;
-    font-size: $font-size-base;
-    font-weight: 500;
+    border-radius: 6px;
+    height: 46px;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.15s;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .sp-hero-btn:hover {
-    background: $btn-primary-color;
-    color: $brand-primary-dark;
+    background: #f0fdfa;
+    color: #085d68;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .sp-hero-btn-secondary {
-    background: rgba($btn-primary-color, 0.2);
-    color: $btn-primary-color;
-    border: 1px solid rgba($btn-primary-color, 0.4);
-    border-radius: $border-radius-base;
-    height: 44px;
-    padding: 0 20px;
-    font-size: $font-size-base;
-    font-weight: 500;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    height: 46px;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.15s;
+    transition: all 0.2s ease;
 }
 .sp-hero-btn-secondary:hover {
-    background: rgba($btn-primary-color, 0.35);
-    color: $btn-primary-color;
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Section Titles */
+.sp-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a2b3c;
+    margin: 0 0 8px;
+    text-align: center;
+}
+.sp-section-subtitle {
+    font-size: 15px;
+    color: #5a6b7c;
+    margin: 0 0 32px;
+    text-align: center;
+}
+
+/* Services Section */
+.sp-services-section {
+    margin-bottom: 48px;
+}
+.sp-service-card {
+    background: #ffffff;
+    border: 1px solid #e8edf2;
+    border-radius: 8px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+.sp-service-card:hover {
+    border-color: #0d8a8f;
+    box-shadow: 0 4px 16px rgba(13, 138, 143, 0.12);
+    transform: translateY(-2px);
+}
+.sp-service-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e6f7f7 0%, #d4f1f4 100%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.sp-service-icon-wrap .glyphicon {
+    font-size: 22px;
+    color: #0a6e7a;
+}
+.sp-service-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a2b3c;
+    margin: 0 0 8px;
+}
+.sp-service-desc {
+    font-size: 13px;
+    color: #5a6b7c;
+    margin: 0 0 16px;
+    line-height: 1.5;
+}
+.sp-service-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0d8a8f;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.sp-service-link .glyphicon {
+    font-size: 10px;
+    transition: transform 0.2s;
+}
+.sp-service-card:hover .sp-service-link .glyphicon {
+    transform: translateX(3px);
+}
+
+/* How It Works Section */
+.sp-how-section {
+    background: #f8fafb;
+    border-radius: 8px;
+    padding: 40px 32px;
+    margin-bottom: 40px;
+}
+.sp-steps-row {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+.sp-step {
+    flex: 1;
+    min-width: 180px;
+    max-width: 240px;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+}
+.sp-step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #0d8a8f;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+.sp-step-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #d4f1f4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+.sp-step-icon-wrap .glyphicon {
+    font-size: 20px;
+    color: #0a6e7a;
+}
+.sp-step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a2b3c;
+    margin: 0 0 6px;
+}
+.sp-step-desc {
+    font-size: 12px;
+    color: #5a6b7c;
+    margin: 0;
+    line-height: 1.5;
+}
+.sp-step-connector {
+    position: absolute;
+    top: 82px;
+    right: -20px;
+    width: 40px;
+    height: 2px;
+    background: #d4f1f4;
+}
+
+@media (max-width: 767px) {
+    .sp-hero-inner {
+        padding: 32px 24px;
+        text-align: center;
+        justify-content: center;
+    }
+    .sp-hero-title {
+        font-size: 26px;
+    }
+    .sp-hero-actions {
+        justify-content: center;
+    }
+    .sp-steps-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .sp-step-connector {
+        display: none;
+    }
+    .sp-step {
+        margin-bottom: 24px;
+    }
 }
 ]]></css>
     <data_table>sp_instance</data_table>
@@ -105,8 +311,8 @@
     <has_preview>false</has_preview>
     <id>x_839216_public_0_home_hero</id>
     <internal>false</internal>
-    <link>function link(scope, element, attrs, controller) {
-}</link>
+    <link><![CDATA[function link(scope, element, attrs, controller) {
+}]]></link>
     <name>Public Health Home Hero</name>
     <option_schema/>
     <public>false</public>
@@ -123,19 +329,55 @@
 })();
 ]]></script>
     <servicenow>false</servicenow>
-    <template><![CDATA[<div class="sp-hero">
+    <template><![CDATA[<!-- Hero Section -->
+<div class="sp-hero">
     <div class="sp-hero-inner">
         <div class="sp-hero-text">
             <h1 class="sp-hero-title">Public Health Safety Portal</h1>
-            <p class="sp-hero-subtitle">Welcome, {{c.data.userFullName}}. Submit and track health service requests, manage appointments, and access public health resources.</p>
+            <p class="sp-hero-subtitle">Access public health services, submit requests, and track their progress.</p>
         </div>
         <div class="sp-hero-actions">
             <button type="button" class="btn sp-hero-btn" ng-click="c.submitRequest()">
-                <span class="glyphicon glyphicon-plus"></span> Submit Request
+                <span class="glyphicon glyphicon-plus"></span> Submit a Health Request
             </button>
             <button type="button" class="btn sp-hero-btn-secondary" ng-click="c.navigateTo('x_839216_public_0_my_requests')">
-                <span class="glyphicon glyphicon-list"></span> My Requests
+                <span class="glyphicon glyphicon-list"></span> Track My Requests
             </button>
+        </div>
+    </div>
+</div>
+
+<!-- Available Services Section -->
+<div class="sp-services-section">
+    <h2 class="sp-section-title">Available Services</h2>
+    <p class="sp-section-subtitle">Select a service below to submit a request</p>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="service in c.services track by service.id">
+            <div class="sp-service-card" ng-click="c.submitRequest()">
+                <div class="sp-service-icon-wrap">
+                    <span class="glyphicon" ng-class="service.icon"></span>
+                </div>
+                <h4 class="sp-service-title">{{service.title}}</h4>
+                <p class="sp-service-desc">{{service.description}}</p>
+                <span class="sp-service-link">Submit Request <span class="glyphicon glyphicon-chevron-right"></span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Section -->
+<div class="sp-how-section">
+    <h2 class="sp-section-title">How It Works</h2>
+    <p class="sp-section-subtitle">Your request goes through a simple 4-step process</p>
+    <div class="sp-steps-row">
+        <div class="sp-step" ng-repeat="step in c.steps track by step.num">
+            <div class="sp-step-num">{{step.num}}</div>
+            <div class="sp-step-icon-wrap">
+                <span class="glyphicon" ng-class="step.icon"></span>
+            </div>
+            <h4 class="sp-step-title">{{step.title}}</h4>
+            <p class="sp-step-desc">{{step.description}}</p>
+            <div class="sp-step-connector" ng-if="!$last"></div>
         </div>
     </div>
 </div>

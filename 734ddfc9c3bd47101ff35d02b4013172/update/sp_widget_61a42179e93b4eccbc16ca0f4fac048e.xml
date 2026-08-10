@@ -29,10 +29,63 @@
         if (p === 'medium') return 'label-info';
         return 'label-default';
     };
+
+    c.getUrgencyClass = function(urgency) {
+        if (!urgency) return 'label-default';
+        var u = urgency.toLowerCase();
+        if (u === 'critical') return 'label-danger';
+        if (u === 'high') return 'label-warning';
+        if (u === 'medium') return 'label-info';
+        return 'label-default';
+    };
+
+    // Build progress steps based on current status
+    c.buildProgressSteps = function() {
+        var record = c.data.record;
+        if (!record) return;
+
+        var status = (record.u_status || '').toLowerCase();
+        var isRejected = (status === 'rejected');
+
+        var steps = [
+            {id: 'submitted', label: 'Submitted', icon: 'glyphicon-edit', completed: false, active: false, rejected: false, pending: true},
+            {id: 'in_progress', label: 'In Progress', icon: 'glyphicon-cog', completed: false, active: false, rejected: false, pending: true},
+            {id: 'final', label: isRejected ? 'Rejected' : 'Approved', icon: isRejected ? 'glyphicon-remove' : 'glyphicon-ok', completed: false, active: false, rejected: false, pending: true}
+        ];
+
+        if (status === 'submitted') {
+            steps[0].active = true;
+            steps[0].pending = false;
+        } else if (status === 'in_progress' || status === 'in progress') {
+            steps[0].completed = true;
+            steps[0].pending = false;
+            steps[1].active = true;
+            steps[1].pending = false;
+        } else if (status === 'approved') {
+            steps[0].completed = true;
+            steps[0].pending = false;
+            steps[1].completed = true;
+            steps[1].pending = false;
+            steps[2].completed = true;
+            steps[2].pending = false;
+        } else if (status === 'rejected') {
+            steps[0].completed = true;
+            steps[0].pending = false;
+            steps[1].completed = true;
+            steps[1].pending = false;
+            steps[2].rejected = true;
+            steps[2].pending = false;
+        }
+
+        c.progressSteps = steps;
+    };
+
+    c.buildProgressSteps();
 };
 ]]></client_script>
     <controller_as>c</controller_as>
-    <css><![CDATA[.sp-detail-header {
+    <css><![CDATA[/* Header */
+.sp-detail-header {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -42,9 +95,154 @@
 .sp-detail-number {
     font-size: 26px;
     font-weight: 700;
-    color: $text-color;
+    color: #1a2b3c;
     margin: 0;
 }
+.sp-detail-panel {
+    border: 1px solid #e8edf2;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+}
+.sp-detail-panel .panel-heading {
+    background: #f8fafb;
+    border-bottom: 1px solid #e8edf2;
+}
+.sp-field-value {
+    font-size: 14px;
+    color: #1a2b3c;
+    margin: 4px 0 0;
+    font-weight: 500;
+}
+.sp-notes-text {
+    font-size: 14px;
+    color: #3a4b5c;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* Progress Indicator */
+.sp-progress-container {
+    background: #ffffff;
+    border: 1px solid #e8edf2;
+    border-radius: 8px;
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+.sp-progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    position: relative;
+}
+.sp-progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    max-width: 200px;
+}
+.sp-progress-dot {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #d4dbe3;
+    background: #ffffff;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+.sp-progress-dot .glyphicon {
+    font-size: 16px;
+    color: #a0aab4;
+}
+.sp-progress-label {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #8a9aab;
+    text-align: center;
+}
+.sp-progress-connector {
+    position: absolute;
+    top: 22px;
+    right: 50%;
+    width: 100%;
+    height: 3px;
+    background: #e0e6ec;
+    z-index: 1;
+}
+
+/* Step States */
+.sp-step-completed .sp-progress-dot {
+    background: #10b981;
+    border-color: #10b981;
+}
+.sp-step-completed .sp-progress-dot .glyphicon {
+    color: #ffffff;
+}
+.sp-step-completed .sp-progress-label {
+    color: #10b981;
+}
+.sp-step-completed .sp-progress-connector,
+.sp-connector-completed {
+    background: #10b981;
+}
+
+.sp-step-active .sp-progress-dot {
+    background: #0d8a8f;
+    border-color: #0d8a8f;
+    box-shadow: 0 0 0 4px rgba(13, 138, 143, 0.15);
+}
+.sp-step-active .sp-progress-dot .glyphicon {
+    color: #ffffff;
+}
+.sp-step-active .sp-progress-label {
+    color: #0d8a8f;
+}
+
+.sp-step-rejected .sp-progress-dot {
+    background: #ef4444;
+    border-color: #ef4444;
+}
+.sp-step-rejected .sp-progress-dot .glyphicon {
+    color: #ffffff;
+}
+.sp-step-rejected .sp-progress-label {
+    color: #ef4444;
+}
+
+.sp-step-pending .sp-progress-dot {
+    background: #f8fafb;
+    border-color: #d4dbe3;
+}
+.sp-step-pending .sp-progress-dot .glyphicon {
+    color: #b0bac4;
+}
+
+/* Approval Banner */
+.sp-approval-banner {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    padding: 12px 18px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #1e40af;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sp-approval-banner .glyphicon {
+    font-size: 16px;
+}
+
+/* Empty State */
 .sp-empty-state {
     padding: 64px 24px;
 }
@@ -53,13 +251,32 @@
     margin-bottom: 16px;
     display: block;
     opacity: 0.35;
-    color: $text-muted;
+    color: #8a9aab;
 }
 .sp-empty-title {
-    font-size: $font-size-large;
+    font-size: 18px;
     font-weight: 600;
-    color: $text-color;
+    color: #1a2b3c;
     margin-bottom: 8px;
+}
+
+@media (max-width: 767px) {
+    .sp-progress-container {
+        padding: 24px 12px;
+    }
+    .sp-progress-dot {
+        width: 36px;
+        height: 36px;
+    }
+    .sp-progress-dot .glyphicon {
+        font-size: 13px;
+    }
+    .sp-progress-connector {
+        top: 18px;
+    }
+    .sp-progress-label {
+        font-size: 11px;
+    }
 }
 ]]></css>
     <data_table>sp_instance</data_table>
@@ -70,8 +287,8 @@
     <has_preview>false</has_preview>
     <id>x_839216_public_0_request_detail</id>
     <internal>false</internal>
-    <link>function link(scope, element, attrs, controller) {
-}</link>
+    <link><![CDATA[function link(scope, element, attrs, controller) {
+}]]></link>
     <name>Public Health Request Detail</name>
     <option_schema/>
     <public>false</public>
@@ -120,7 +337,7 @@
         <div class="sp-empty-state">
             <span class="glyphicon glyphicon-exclamation-sign sp-empty-icon"></span>
             <h4 class="sp-empty-title">Request Not Found</h4>
-            <p class="text-muted">The requested record could not be found.</p>
+            <p class="text-muted">The requested record could not be found or you may not have permission to view it.</p>
             <button type="button" class="btn btn-primary" ng-click="c.goBack()">
                 <span class="glyphicon glyphicon-arrow-left"></span> Back to Requests
             </button>
@@ -129,17 +346,40 @@
 </div>
 
 <div ng-if="c.data.record">
+    <!-- Header -->
     <div class="sp-detail-header">
-        <button type="button" class="btn btn-default" ng-click="c.goBack()">
+        <button type="button" class="btn btn-default btn-sm" ng-click="c.goBack()">
             <span class="glyphicon glyphicon-arrow-left"></span> Back
         </button>
         <h2 class="sp-detail-number">{{c.data.record.number}}</h2>
         <span class="label" ng-class="c.getStatusClass(c.data.record.u_status)">{{c.data.record.u_status}}</span>
     </div>
 
+    <!-- Status Progress Indicator -->
+    <div class="sp-progress-container">
+        <div class="sp-progress-bar">
+            <div class="sp-progress-step" ng-repeat="step in c.progressSteps track by step.id"
+                 ng-class="{'sp-step-completed': step.completed, 'sp-step-active': step.active, 'sp-step-rejected': step.rejected, 'sp-step-pending': step.pending}">
+                <div class="sp-progress-connector" ng-if="!$first"
+                     ng-class="{'sp-connector-completed': step.completed || step.active || step.rejected}"></div>
+                <div class="sp-progress-dot">
+                    <span class="glyphicon" ng-class="step.icon"></span>
+                </div>
+                <div class="sp-progress-label">{{step.label}}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Approval Status Banner -->
+    <div class="sp-approval-banner" ng-if="c.data.record.u_approval_status">
+        <span class="glyphicon glyphicon-info-sign"></span>
+        <strong>Approval Status:</strong> {{c.data.record.u_approval_status}}
+    </div>
+
     <div class="row">
         <div class="col-md-8 col-xs-12">
-            <div class="panel panel-default">
+            <!-- Request Details Panel -->
+            <div class="panel panel-default sp-detail-panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         <span class="glyphicon glyphicon-file"></span> Request Details
@@ -150,7 +390,7 @@
                         <div class="col-md-6 col-xs-12">
                             <div class="form-group">
                                 <label class="control-label text-muted">Request Type</label>
-                                <p>{{c.data.record.u_request_type}}</p>
+                                <p class="sp-field-value">{{c.data.record.u_request_type}}</p>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12">
@@ -164,13 +404,15 @@
                         <div class="col-md-6 col-xs-12">
                             <div class="form-group">
                                 <label class="control-label text-muted">Urgency</label>
-                                <p>{{c.data.record.u_urgency}}</p>
+                                <p class="sp-field-value">
+                                    <span class="label" ng-class="c.getUrgencyClass(c.data.record.u_urgency)">{{c.data.record.u_urgency}}</span>
+                                </p>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12">
                             <div class="form-group">
                                 <label class="control-label text-muted">Assignment Group</label>
-                                <p>{{c.data.record.assignment_group || 'Unassigned'}}</p>
+                                <p class="sp-field-value">{{c.data.record.assignment_group || 'Unassigned'}}</p>
                             </div>
                         </div>
                     </div>
@@ -178,13 +420,13 @@
                         <div class="col-md-6 col-xs-12">
                             <div class="form-group">
                                 <label class="control-label text-muted">Appointment Date</label>
-                                <p>{{c.data.record.u_appointment_date || 'N/A'}}</p>
+                                <p class="sp-field-value">{{c.data.record.u_appointment_date || 'N/A'}}</p>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12">
                             <div class="form-group">
                                 <label class="control-label text-muted">Created On</label>
-                                <p>{{c.data.record.sys_created_on}}</p>
+                                <p class="sp-field-value">{{c.data.record.sys_created_on}}</p>
                             </div>
                         </div>
                     </div>
@@ -192,27 +434,29 @@
                         <div class="col-xs-12">
                             <div class="form-group">
                                 <label class="control-label text-muted">Purpose</label>
-                                <p>{{c.data.record.u_purpose}}</p>
+                                <p class="sp-field-value">{{c.data.record.u_purpose}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="panel panel-default" ng-if="c.data.record.u_notes">
+            <!-- Notes Panel -->
+            <div class="panel panel-default sp-detail-panel" ng-if="c.data.record.u_notes">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         <span class="glyphicon glyphicon-comment"></span> Notes
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <p>{{c.data.record.u_notes}}</p>
+                    <p class="sp-notes-text">{{c.data.record.u_notes}}</p>
                 </div>
             </div>
         </div>
 
+        <!-- Sidebar -->
         <div class="col-md-4 col-xs-12">
-            <div class="panel panel-default">
+            <div class="panel panel-default sp-detail-panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         <span class="glyphicon glyphicon-user"></span> Citizen Information
@@ -221,19 +465,19 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="control-label text-muted">Name</label>
-                        <p>{{c.data.record.u_citizen_name || 'N/A'}}</p>
+                        <p class="sp-field-value">{{c.data.record.u_citizen_name || 'N/A'}}</p>
                     </div>
                     <div class="form-group">
                         <label class="control-label text-muted">Email</label>
-                        <p>{{c.data.record.u_email || 'N/A'}}</p>
+                        <p class="sp-field-value">{{c.data.record.u_email || 'N/A'}}</p>
                     </div>
                     <div class="form-group">
                         <label class="control-label text-muted">Phone</label>
-                        <p>{{c.data.record.u_phone_number || 'N/A'}}</p>
+                        <p class="sp-field-value">{{c.data.record.u_phone_number || 'N/A'}}</p>
                     </div>
                     <div class="form-group">
                         <label class="control-label text-muted">Opened By</label>
-                        <p>{{c.data.record.opened_by || c.data.record.sys_created_by}}</p>
+                        <p class="sp-field-value">{{c.data.record.opened_by || c.data.record.sys_created_by}}</p>
                     </div>
                 </div>
             </div>
